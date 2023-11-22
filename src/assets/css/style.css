@@ -2,7 +2,8 @@
 	--bg-body: #aaa;
 	--bg-main: #eee;
 	--bg-sidebar: var(--bg-main);
-	--container-border: 4px solid #222;
+	--border-container: 4px solid #222;
+	--border-thumbnail: 2px solid #222;
 }
 
 body {
@@ -21,7 +22,7 @@ main {
 	grid-area: main;
 	box-sizing: border-box;
 	padding: 10px 40px;
-	border: var(--container-border);
+	border: var(--border-container);
 }
 
 #sidebar {
@@ -29,10 +30,36 @@ main {
 	grid-area: sidebar;
 	box-sizing: border-box;
 	padding: 10px 20px;
-	border: var(--container-border);
+	border: var(--border-container);
 }
 
 #sidebar nav > ul {
 	list-style: none;
 	padding: 0;
+}
+
+.thumb-list {
+	display: flex;
+	list-style: none;
+	padding: 0;
+	max-width: 100%;
+	gap: 10px;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.thumb-list-item a {
+	text-decoration: none;
+}
+
+.thumb-item-box {
+	display: block;
+	width: 160px;
+}
+
+.thumbnail {
+	display: block;
+	border: var(--border-thumbnail);
+	width: 160px;
+	height: 160px;
 }
