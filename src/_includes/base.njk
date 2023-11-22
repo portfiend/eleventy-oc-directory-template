@@ -8,6 +8,10 @@
 		<link rel="stylesheet" href="/assets/css/style.css">
 	</head>
 	<body>
-		{{content | safe}}
+		{% include "_sidebar.njk" %}
+
+		<main>
+			{{content | safe}}
+		</main>
 	</body>
 </html>
