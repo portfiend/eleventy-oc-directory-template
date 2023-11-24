@@ -15,6 +15,7 @@ body {
 	margin: 40px 80px;
 	padding: 0;
 	grid-gap: 20px;
+	overflow-x: hidden;
 }
 
 main {
@@ -62,4 +63,21 @@ main {
 	border: var(--border-thumbnail);
 	width: 160px;
 	height: 160px;
+}
+
+[role=tabpanel] {
+  border: 1px solid #222;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+[role=tab] {
+  border: 1px solid #222;
+  padding: 5px;
+	cursor: pointer;
+}
+
+[role=tab][aria-selected=true] {
+  background: #cff;
+	cursor: initial;
 }
