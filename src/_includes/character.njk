@@ -1,0 +1,59 @@
+---
+layout: base.njk
+tags: [character]
+
+pageTitle: Character Name
+thumbnailUrl: thumbnails/character/example.png
+
+name: Character Name
+title: Informational title
+settings: []
+pronouns: null
+
+---
+
+{% set settingPages = [] %}
+{% for _setting in settings %}
+	{% set data = collections.all | getPageById(_setting) %}
+	{{ data and settingPages.push(data) and "" }}
+{% endfor %}
+
+{% set previous = collections.character | getPreviousCollectionItem %}
+{% set next = collections.character | getNextCollectionItem %}
+
+<article>
+	<main>
+		{{ content | safe }}
+	</main>
+
+	<footer>
+		<nav>
+			<ul>
+				{% if previous %}
+					<li>Previous: <a href="{{ previous.url }}">{{ previous.data.pageTitle }}</a>
+					</li>
+				{% endif %}
+
+				<li>
+					<a href="/characters">Back to Characters</a>
+				</li>
+
+				{% if next %}
+					<li>Next: <a href="{{ next.url }}">{{ next.data.pageTitle }}</a>
+					</li>
+				{% endif %}
+
+				{% for settingPage in settingPages %}
+					<li>
+						<a 
+						class="setting-link" 
+						href="{{settingPage.url}}"
+						data-id="{{settingPage.data.id}}">
+						Go to {{settingPage.data.name}}
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</nav>
+	</footer>
+</article>
