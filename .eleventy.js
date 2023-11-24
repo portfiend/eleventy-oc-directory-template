@@ -14,6 +14,12 @@ module.exports = function (eleventyConfig) {
 
 	// Shortcodes
 
+	eleventyConfig.addPairedNunjucksShortcode("sensitive", (content, warning) => {
+		return `<div class="cw-${warning}">
+			${content}
+		</div>`
+	});
+
 	eleventyConfig.addPairedNunjucksShortcode("tabList", (content, options) => {
 		const id = "tabList-" + (options.id || "null");
 		const title = options.title || "";

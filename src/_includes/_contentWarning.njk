@@ -60,4 +60,12 @@
 			dialog.showModal();
 		}
 	</script>
+
+	<style>
+		{% for warning in warnings %}
+			body:not(.optIn-{{warning}}) .cw-{{warning}} {
+				display: none;
+			} 
+		{% endfor %}
+	</style>
 {% endif %}
