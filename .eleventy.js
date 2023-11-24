@@ -1,3 +1,5 @@
+const contentWarning = require("./src/_data/contentWarning.json");
+
 module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("./src/assets/");
 	eleventyConfig.addWatchTarget("./src/assets/");
@@ -14,8 +16,21 @@ module.exports = function (eleventyConfig) {
 
 	// Shortcodes
 
-	eleventyConfig.addPairedNunjucksShortcode("sensitive", (content, warning, blurred) => {
-		return `<div class="${blurred ? "blur-content blur" : "cw"}-${warning}" ${blurred ? 'data-blurred="" tabindex="0"' : ""}>
+	eleventyConfig.addPairedNunjucksShortcode("blurred", (content, warning) => {
+		const warningType = warning === "adult" ? "Adult content" : contentWarning.siteWarnings[warning].name;
+
+		return `<div class="blur-content blur-${warning}" data-blurred="" tabindex="0">
+			<div class="blur-inner">
+				${content}
+			</div>
+			<div class="blur-warning">
+				this content has been marked as ${warningType}. click to show/hide.
+			</div>
+		</div>`
+	});
+
+	eleventyConfig.addPairedNunjucksShortcode("sensitive", (content, warning) => {
+		return `<div class="cw-${warning}">
 			${content}
 		</div>`
 	});
