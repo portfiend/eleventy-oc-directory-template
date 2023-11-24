@@ -21,7 +21,7 @@ const initializeContentWarning = (_warnings) => {
 		}
 	
 		checkbox.addEventListener("change", (e) => {
-			toggleOptIn(optInId, e.target.checked);
+			setOptIn(optInId, e.target.checked);
 
 			const requireBoxes = dialog.querySelectorAll(`[data-require=${warning}]`);
 			for (let r = 0; r < requireBoxes.length; r++) {
@@ -40,7 +40,14 @@ const initializeContentWarning = (_warnings) => {
 	}
 }
 
-const toggleOptIn = (optInId, value) => {
+const setOptIn = (optInId, value) => {
 	contentOptions[optInId] = value;
 	localStorage.setItem(optInId, value);
+
+	if (value === true) {
+		document.body.classList.add(optInId);
+	}
+	else {
+		document.body.classList.remove(optInId);
+	}
 }
