@@ -14,8 +14,8 @@ module.exports = function (eleventyConfig) {
 
 	// Shortcodes
 
-	eleventyConfig.addPairedNunjucksShortcode("sensitive", (content, warning) => {
-		return `<div class="cw-${warning}">
+	eleventyConfig.addPairedNunjucksShortcode("sensitive", (content, warning, blurred) => {
+		return `<div class="${blurred ? "blur-content blur" : "cw"}-${warning}" ${blurred ? 'data-blurred="" tabindex="0"' : ""}>
 			${content}
 		</div>`
 	});

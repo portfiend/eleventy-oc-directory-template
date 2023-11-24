@@ -66,6 +66,14 @@
 			body:not(.optIn-{{warning}}) .cw-{{warning}} {
 				display: none;
 			} 
+
+			.blur-content {
+    		cursor: pointer;
+			} 
+
+			.blur-content[data-blurred] {
+    		filter: blur(5px);
+			} 
 		{% endfor %}
 	</style>
 {% endif %}
