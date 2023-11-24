@@ -1,4 +1,5 @@
 const contentWarning = require("./src/_data/contentWarning.json");
+const metadata = require("./src/_data/metadata.json");
 
 module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("./src/assets/");
@@ -15,6 +16,20 @@ module.exports = function (eleventyConfig) {
 	})
 
 	// Shortcodes
+
+	eleventyConfig.addShortcode("thumbnail", (page) => {
+		return `
+			<article class="thumb-item-box">
+				<a href="${page.url}">
+					<img 
+						alt="${page.data.pageTitle}" 
+						src="${metadata.assets.img}/${page.data.thumbnailUrl}" 
+						class="thumbnail"/>
+					<div class="thumb-footer">${page.data.pageTitle}</div>
+				</a>
+			</article>
+		`;
+	})
 
 	eleventyConfig.addPairedNunjucksShortcode("blurred", (content, warning) => {
 		const warningType = warning === "adult" ? "Adult content" : contentWarning.siteWarnings[warning].name;
