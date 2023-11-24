@@ -13,7 +13,7 @@ pageTitle: Characters
 			<a href="{{page.url}}">
 				<img 
 					alt="{{page.data.pageTitle}}" 
-					src="/assets/img/{{page.data.thumbnailUrl}}" 
+					src="{{metadata.assets.img}}/{{page.data.thumbnailUrl}}" 
 					class="thumbnail"/>
 				<div class="thumb-footer">{{page.data.pageTitle}}</div>
 			</a>
