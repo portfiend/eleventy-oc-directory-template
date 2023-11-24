@@ -4,9 +4,7 @@ const initializeContentWarning = (_warnings) => {
 	const dialog = document.querySelector("dialog#content-warning");
 	if (!dialog) return;
 
-	const closeButton = dialog.querySelector("#confirm-dialog");
-	if (closeButton) {
-		closeButton.addEventListener("click", () => {
+	dialog.addEventListener("close", () => {
 			localStorage.setItem("cw-confirm", true);
 		})
 	}
