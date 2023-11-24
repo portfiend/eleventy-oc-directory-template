@@ -5,9 +5,8 @@ const initializeContentWarning = (_warnings) => {
 	if (!dialog) return;
 
 	dialog.addEventListener("close", () => {
-			localStorage.setItem("cw-confirm", true);
-		})
-	}
+		localStorage.setItem("cw-confirm", true);
+	})
 
 	const warnings = JSON.parse(_warnings);
 	for (let w = 0; w < warnings.length; w++) {
@@ -24,7 +23,7 @@ const initializeContentWarning = (_warnings) => {
 		checkbox.addEventListener("change", (e) => {
 			toggleOptIn(optInId, e.target.checked);
 
-			const requireBoxes = dialog.querySelectorAll(`input[type=checkbox][data-require=${warning}]`);
+			const requireBoxes = dialog.querySelectorAll(`[data-require=${warning}]`);
 			for (let r = 0; r < requireBoxes.length; r++) {
 				const requireBox = requireBoxes[r];
 				requireBox.disabled = !e.target.checked;
