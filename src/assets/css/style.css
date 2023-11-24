@@ -81,3 +81,18 @@ body {
   background: #cff;
 	cursor: initial;
 }
+
+#content-warning {
+  max-width: 640px;
+}
+
+#content-warning::backdrop {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+#content-warning label {
+  font-style: italic;
+  background: rgba(0,0,0, 0.1);
+  padding: 5px;
+  display: inline-block;
+}
