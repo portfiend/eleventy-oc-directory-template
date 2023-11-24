@@ -18,7 +18,7 @@ body {
 	overflow-x: hidden;
 }
 
-main {
+#content {
 	background: var(--bg-main);
 	grid-area: main;
 	box-sizing: border-box;
