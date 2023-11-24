@@ -8,6 +8,10 @@ module.exports = function (eleventyConfig) {
 		return collection.find(item => item.data.id === id);
 	})
 
+	eleventyConfig.addFilter("keys", dict => {
+		return Object.keys(dict);
+	})
+
 	// Shortcodes
 
 	eleventyConfig.addPairedNunjucksShortcode("tabList", (content, options) => {
