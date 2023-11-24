@@ -1,0 +1,59 @@
+{% if contentWarning.showAdultContentWarning or contentWarning.showSiteContentWarning %}
+	<dialog id="content-warning">
+		{% if contentWarning.showAdultContentWarning %}
+			<p>
+			This website has been marked for **18+ audiences** only. By clicking the checkbox below, you agree
+			that you are above this age.
+		</p>
+			<label for="cbx-adult">I agree that I am over the age of 18!</label>
+			<input id="cbx-adult" 
+				value="adult" 
+				type="checkbox" 
+				autocomplete="off"/>
+		{% endif %}
+
+		{% if contentWarning.showSiteContentWarning %}
+			<p>
+			This website may contain the following sensitive content:
+		</p>
+			<ul>
+				{% for warning, warningData in contentWarning.siteWarnings %}
+					<li>
+						<label for="cbx-{{warning}}">
+							{{warningData.name}}
+							{{"(" + warningData.description + ")" if warningData.description}}
+						</label>
+						<input id="cbx-{{warning}}" 
+							value="{{warning}}" 
+							type="checkbox"
+							autocomplete="off"
+							{{'data-require='+ warningData.require if warningData.require}}
+							{{"checked" if warningData.defaultVisibility}}
+							{{"disabled" if warningData.require}}/>
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+
+		<form method="dialog">
+			<button id="confirm-dialog">Confirm my content preferences</button>
+		</form>
+
+		<p>(These settings can be changed at any time.)</p>
+	</dialog>
+
+	{% set warnings = contentWarning.siteWarnings | keys %}
+	{% if contentWarning.showAdultContentWarning %}
+		{{ warnings.unshift("adult") and "" }}
+	{% endif %}
+
+	<script src="{{metadata.assets.js}}/contentWarning.js"></script>
+	<script>
+		const dialog = document.querySelector("dialog#content-warning");
+		const alreadyDone = localStorage.getItem("cw-confirm");
+		initializeContentWarning('{{warnings | dump | safe }}');
+		if (alreadyDone !== "true") {
+			dialog.showModal();
+		}
+	</script>
+{% endif %}

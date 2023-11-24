@@ -1,0 +1,27 @@
+{
+	"showSiteContentWarning": true,
+	"showAdultContentWarning": true,
+	"mustBeAdult": false,
+	"siteWarnings": {
+		"flash": {
+			"name": "Photosensitive imagery",
+			"description": "flashing, strobing, bright or high-contrast imagery",
+			"defaultVisibility": true
+		},
+		"gore": {
+			"name": "Gore / Graphic violence",
+			"defaultVisibility": false
+		},
+		"nudity": {
+			"name": "Nudity",
+			"description": "non-sexual",
+			"defaultVisibility": false
+		},
+		"sexual": {
+			"name": "Sexual content",
+			"description": "pornographic or sexually provocative material",
+			"defaultVisibility": false,
+			"require": "adult"
+		}
+	}
+}
