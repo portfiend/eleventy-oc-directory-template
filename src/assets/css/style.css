@@ -68,19 +68,21 @@ body {
 }
 
 [role=tabpanel] {
-  border: 1px solid #222;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid #444;
+  padding: 10px 30px;
+	margin: 0 -20px;
+  background: rgba(0, 0, 0, 0.025);
 }
 
 [role=tab] {
-  border: 1px solid #222;
+  border: 1px solid #444;
+	border-bottom-width: 0;
   padding: 5px;
 	cursor: pointer;
 }
 
 [role=tab][aria-selected=true] {
-  background: #cff;
+  background: #ccc;
 	cursor: initial;
 }
 
@@ -155,4 +157,35 @@ body {
 .nav-next {
   grid-area: next;
   text-align: right;
+}
+
+.field-table {
+  width: 400px;
+  margin: 10px auto;
+  box-sizing: border-box;
+  border-collapse: collapse;
+}
+
+.field-table caption {
+  font-style: italic;
+  opacity: 0.5;
+}
+
+.field-row {
+  border-bottom: 1px solid #aaa;
+}
+
+.field-row:last-child {
+  border-bottom: none;
+}
+
+.field-key {
+  text-align: left;
+  padding: 5px 0 5px 15px;
+  text-transform: uppercase;
+}
+
+.field-value {
+  text-align: right;
+  padding: 5px 15px 5px 0px;
 }
