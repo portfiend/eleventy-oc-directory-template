@@ -25,6 +25,19 @@ module.exports = function (eleventyConfig) {
 
 	// Shortcodes
 
+	eleventyConfig.addShortcode("keyValue", (name, key, value) => {
+		return `
+			<tr class="field-row" aria-label="${name}">
+				<th class="field-key">
+					${key}
+				</th>
+				<td class="field-value">
+					${value}
+				</td>
+			</tr>
+		`;
+	})
+
 	eleventyConfig.addShortcode("thumbnail", (page) => {
 		return `
 			<article class="thumb-item-box">
