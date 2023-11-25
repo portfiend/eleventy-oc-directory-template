@@ -25,9 +25,9 @@ module.exports = function (eleventyConfig) {
 
 	// Shortcodes
 
-	eleventyConfig.addShortcode("keyValue", (name, key, value) => {
+	eleventyConfig.addShortcode("keyValue", (key, value) => {
 		return `
-			<tr class="field-row" aria-label="${name}">
+			<tr class="field-row">
 				<th class="field-key">
 					${key}
 				</th>
