@@ -131,3 +131,28 @@ body {
 .blur-content:hover .blur-warning {
   box-shadow: var(--cw-shadow-color) 0px 0px 8px 8px;
 }
+
+.navigation-bar {
+  background-color: #ccc;
+  margin: 0 -40px;
+  padding: 10px;
+  display: grid;
+  grid-template-areas: "previous back next";
+  grid-template-columns: repeat(3, 1fr);
+  list-style: none;
+}
+
+.nav-back {
+  grid-area: back;
+  text-align: center
+}
+
+.nav-previous {
+  grid-area: previous;
+  text-align: left;
+}
+
+.nav-next {
+  grid-area: next;
+  text-align: right;
+}

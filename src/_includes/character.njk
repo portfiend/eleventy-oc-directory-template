@@ -12,14 +12,13 @@ pronouns: null
 
 ---
 
+{% from "macros/_collectionNav.njk" import nav as collectionNav %}
+
 {% set settingPages = [] %}
 {% for _setting in settings %}
 	{% set data = collections.all | getPageById(_setting) %}
 	{{ data and settingPages.push(data) and "" }}
 {% endfor %}
-
-{% set previous = collections.character | getPreviousCollectionItem %}
-{% set next = collections.character | getNextCollectionItem %}
 
 <article>
 	<main>
@@ -29,20 +28,6 @@ pronouns: null
 	<footer>
 		<nav>
 			<ul>
-				{% if previous %}
-					<li>Previous: <a href="{{ previous.url }}">{{ previous.data.pageTitle }}</a>
-					</li>
-				{% endif %}
-
-				<li>
-					<a href="/characters">Back to Characters</a>
-				</li>
-
-				{% if next %}
-					<li>Next: <a href="{{ next.url }}">{{ next.data.pageTitle }}</a>
-					</li>
-				{% endif %}
-
 				{% for settingPage in settingPages %}
 					<li>
 						<a 
@@ -54,6 +39,10 @@ pronouns: null
 					</li>
 				{% endfor %}
 			</ul>
+
+			{% set previous = collections.character | getPreviousCollectionItem %}
+			{% set next = collections.character | getNextCollectionItem %}
+			{{ collectionNav("Characters", "/characters", previous, next) }}
 		</nav>
 	</footer>
 </article>
