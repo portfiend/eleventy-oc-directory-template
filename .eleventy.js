@@ -1,5 +1,6 @@
 const markdownIt = require("markdown-it");
 const { attrs } = require("@mdit/plugin-attrs");
+const markdownDiv = require('markdown-it-div');
 
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
 
@@ -124,7 +125,7 @@ const configureMarkdown = (eleventyConfig) => {
 	});
 
 	markdownEngine.use(attrs);
-	markdownEngine.use(require('markdown-it-div'));
+	markdownEngine.use(markdownDiv);
 
 	eleventyConfig.setLibrary("md", markdownEngine);
 }
