@@ -12,6 +12,7 @@ This is an [Eleventy](https://www.11ty.dev/) template designed for a original ch
 - Content warning options, with support for the following:
   - Dialog modal on first visit to opt in/out of sensitive content
   - TODO: Page for configuring content preferences at any time
-  - `sensitive` shortcode for hiding opted-out content
   - `blurred` shortcode that can be unblurred by the user, with initial blur state based on content preference
   - Force users to click an "I am an adult" checkbox for mature rated websites
+- [`@mdit/plugin-attrs`](https://mdit-plugins.github.io/attrs.html) for adding attributes to Markdown elements
+- [`markdown-it-div`](https://www.npmjs.com/package/markdown-it-div) for creating divs in Markdown without HTML
