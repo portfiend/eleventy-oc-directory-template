@@ -26,6 +26,34 @@ module.exports = function (eleventyConfig) {
 
 	// Shortcodes
 
+	eleventyConfig.addPairedShortcode("gallery", (content) => {
+		return `
+			<ul class="gallery" aria-role="gallery" >
+				${content}
+			</ul>
+		`
+	});
+
+	eleventyConfig.addShortcode("lightboxImg", (src, caption, meta) => {
+		let formattedMetadata = "";
+		if (meta && meta.constructor == Object) {
+			let metaStrings = [];
+			for (key in meta) {
+				metaStrings.push(`data-metadata-${key}="${meta[key]}"`);
+			}
+			formattedMetadata = metaStrings.join(" ");
+		}
+
+		return `
+			<figure class="lightbox-image">
+				<a class="lightbox-link" href="${metadata.assets.img}/${src}">
+					<img src="${metadata.assets.img}/${src}" alt="${(meta && meta.alt) || caption}" ${formattedMetadata} />
+				</a>
+				${caption && `<figcaption>${caption}</figcaption>` || ""}
+			</figure>
+		`
+	})
+
 	eleventyConfig.addShortcode("keyValue", (key, value) => {
 		return `
 			<tr class="field-row">
