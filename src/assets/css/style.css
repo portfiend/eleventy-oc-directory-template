@@ -41,6 +41,11 @@ body {
 	padding: 0;
 }
 
+hr { 
+	border: none;
+	border-bottom: 1px solid #555;
+}
+
 .thumb-list {
 	display: flex;
 	list-style: none;
