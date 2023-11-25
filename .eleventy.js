@@ -47,9 +47,8 @@ module.exports = function (eleventyConfig) {
 		return `
 			<figure class="lightbox-image">
 				<a class="lightbox-link" href="${metadata.assets.img}/${src}">
-					<img src="${metadata.assets.img}/${src}" alt="${(meta && meta.alt) || caption}" ${formattedMetadata} />
+					<img src="${metadata.assets.img}/${src}" alt="${caption}" ${formattedMetadata} />
 				</a>
-				${caption && `<figcaption>${caption}</figcaption>` || ""}
 			</figure>
 		`
 	})
