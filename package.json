@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^2.0.1",
+    "@mdit/plugin-attrs": "^0.7.0",
+    "markdown-it-div": "^1.1.0"
   }
 }

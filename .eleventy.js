@@ -1,7 +1,15 @@
+const markdownIt = require("markdown-it");
+const { attrs } = require("@mdit/plugin-attrs");
+
+const { EleventyRenderPlugin } = require("@11ty/eleventy");
+
 const contentWarning = require("./src/_data/contentWarning.json");
 const metadata = require("./src/_data/metadata.json");
 
 module.exports = function (eleventyConfig) {
+	configureMarkdown(eleventyConfig);
+
+	eleventyConfig.addPlugin(EleventyRenderPlugin);
 	eleventyConfig.addPassthroughCopy("./src/assets/");
 	eleventyConfig.addWatchTarget("./src/assets/");
 
@@ -41,12 +49,6 @@ module.exports = function (eleventyConfig) {
 			<div class="blur-warning">
 				this content has been marked as ${warningType}. click to show/hide.
 			</div>
-		</div>`
-	});
-
-	eleventyConfig.addPairedNunjucksShortcode("sensitive", (content, warning) => {
-		return `<div class="cw-${warning}">
-			${content}
 		</div>`
 	});
 
@@ -101,4 +103,15 @@ module.exports = function (eleventyConfig) {
 		},
 		markdownTemplateEngine: "njk"
 	}
+}
+
+const configureMarkdown = (eleventyConfig) => {
+	const markdownEngine = markdownIt({
+		html: true
+	});
+
+	markdownEngine.use(attrs);
+	markdownEngine.use(require('markdown-it-div'));
+
+	eleventyConfig.setLibrary("md", markdownEngine);
 }
