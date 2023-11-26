@@ -219,3 +219,77 @@ ul.gallery {
   max-width: 128px;
   max-height: 128px;
 }
+
+
+#lb-overlay {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+#lb-overlay[hidden] {
+  display: none;
+}
+
+#lb-metadata {
+  background: #eee;
+  width: 100vw;
+  height: 100px;
+  box-sizing: border-box;
+  padding: 10px 10vw;
+  display: flex;
+  gap: 20px;
+}
+
+#lb-caption { 
+  text-align: right;
+  width: 50%;
+}
+
+#lb-metalist {
+  width: 50%;
+  display: grid;
+  gap: 5px 10px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#lb-metalist > tr {
+  display: flex;
+  justify-content: space-between;
+}
+
+#lb-metalist > tr td {
+  padding-right: 20px;
+}
+
+#lb-metalist > tr th {
+  padding-left: 20px;
+}
+
+#lb-preview {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100vw;
+  height: calc(100vh - 100px);
+  padding: 40px;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+#lb-preview > * {
+  cursor: initial;
+}
+
+#lb-img {
+  max-width: 1200px;
+  max-height: calc(100vh - 180px);
+}
