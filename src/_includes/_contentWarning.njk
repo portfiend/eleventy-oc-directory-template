@@ -50,8 +50,6 @@
 	{% if contentWarning.showAdultContentWarning %}
 		{{ warnings.unshift("adult") and "" }}
 	{% endif %}
-
-	<script src="{{metadata.assets.js}}/contentWarning.js"></script>
 	<script>
 		const dialog = document.querySelector("dialog#content-warning");
 		const alreadyDone = localStorage.getItem("cw-confirm");
