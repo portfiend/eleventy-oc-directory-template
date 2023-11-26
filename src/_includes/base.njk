@@ -4,11 +4,21 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{{metadata.title}} {{"| " + pageTitle if pageTitle}}</title>
+		<title>{{metadata.title}}
+			{{"| " + pageTitle if pageTitle}}</title>
 		<link rel="stylesheet" href="{{metadata.assets.css}}/style.css">
-		<script src="{{metadata.assets.js}}/contentWarning.js"></script>
-		<script src="{{metadata.assets.js}}/lightbox.js"></script>
-		<script src="{{metadata.assets.js}}/widgets.js"></script>
+
+		{% if settings.enableContentWarnings %}
+			<script src="{{metadata.assets.js}}/contentWarning.js"></script>
+		{% endif %}
+
+		{% if settings.enableLightbox %}
+			<script src="{{metadata.assets.js}}/lightbox.js"></script>
+		{% endif %}
+		
+		{% if settings.enableWidgets %}
+			<script src="{{metadata.assets.js}}/widgets.js"></script>
+		{% endif %}
 	</head>
 	<body>
 		{% include "_sidebar.njk" %}
@@ -16,8 +26,12 @@
 		<main id="content">
 			{{content | safe}}
 		</main>
-		
-		{% include "_contentWarning.njk" %}
-		{% include "_lightbox.njk" %}
+
+		{% if settings.enableContentWarnings %}
+			{% include "_contentWarning.njk" %}
+		{% endif %}
+		{% if settings.enableLightbox %}
+			{% include "_lightbox.njk" %}
+		{% endif %}
 	</body>
 </html>
