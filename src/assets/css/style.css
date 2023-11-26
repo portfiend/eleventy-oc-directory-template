@@ -198,26 +198,33 @@ hr {
 ul.gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
   gap: 10px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.gallery img {
-  border: 1px solid #aaa;
-  border-radius: 5px;
-}
-
-.lightbox-image {
+.gallery .lightbox-image {
   margin: 0;
   padding: 0;
+  width: 128px;
+  height: 128px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.lightbox-image a {
+  display: block;
+  height: 100%;
 }
 
 .lightbox-image img {
-  max-width: 128px;
-  max-height: 128px;
+  display: block;
+  width: auto;
+  max-height: 100%;
 }
 
 
