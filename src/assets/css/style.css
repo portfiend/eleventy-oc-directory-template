@@ -205,6 +205,11 @@ ul.gallery {
   padding: 0;
 }
 
+.gallery img {
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+
 .lightbox-image {
   margin: 0;
   padding: 0;
