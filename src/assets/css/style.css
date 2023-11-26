@@ -108,6 +108,11 @@ hr {
 
 .blur-content {
   position: relative;
+  margin: 15px 0;
+}
+
+p > .blur-content {
+  margin: 0;
 }
 
 .blur-content:not([data-blurred]) .blur-inner {
