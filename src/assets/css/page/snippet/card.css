@@ -1,0 +1,84 @@
+.card {
+  display: grid;
+  width: 100%;
+  grid-template-areas: "header header" "reference details";
+  grid-template-columns: 240px auto;
+  grid-template-rows: auto 320px;
+  margin: 0 -30px;
+  padding: 10px 30px;
+  gap: 10px;
+}
+
+.card-header {
+  grid-area: header;
+  background: #bbb;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.card-header h1 {
+  margin: 5px 0;
+}
+
+.card-reference {
+  grid-area: reference;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.card-reference figure {
+  position: absolute;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.card-reference figure a, .card-reference figure img {
+  display: block;
+  position: absolute;
+  left: -20px;
+  width: auto;
+  height: 100%;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  grid-area: details;
+  background-color: #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.card-table {
+  width: 100%;
+}
+
+.card-table tbody {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 20px;
+}
+
+.card-table tr th {
+  padding-left: 0;
+}
+
+.card-table tr td {
+  padding-right: 0;
+}
+
+.card-table tr {
+  border: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-biography {
+  overflow-y: auto;
+}
