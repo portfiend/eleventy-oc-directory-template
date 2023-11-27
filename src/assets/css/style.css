@@ -267,9 +267,13 @@ ul.gallery {
 
 #lb-metalist {
   width: 50%;
+  max-height: 100%;
   display: grid;
-  gap: 5px 10px;
+  gap: 5px 15px;
   grid-template-columns: repeat(2, 1fr);
+  overflow-y: auto;
+  padding-right: 20px;
+  margin-right: 20px;
 }
 
 #lb-metalist > tr {
@@ -277,13 +281,14 @@ ul.gallery {
   justify-content: space-between;
 }
 
-#lb-metalist > tr td {
-  padding-right: 20px;
+#lb-metalist > tr th {
+  text-align: left;
 }
 
-#lb-metalist > tr th {
-  padding-left: 20px;
+#lb-metalist > tr td {
+  text-align: right;
 }
+
 
 #lb-preview {
   cursor: pointer;
