@@ -1,0 +1,143 @@
+---
+layout: character.njk
+tags: [character, example]
+
+# Used as a short ID for various page data-retrieving functions.
+id: character:example
+pageTitle: Character Name
+thumbnailUrl: thumbnails/character/example.png
+pageThemes:
+- snippet/card.css
+
+name: Character Name
+subtitle: Informative title
+pronouns: any pronouns
+settings: 
+-	setting:example
+
+---
+<h1>{{pageTitle}}</h1>
+
+{% tabList id="character", title="Character info" %}
+	{% tabButton id="main", label="Basic Information", selected=true %}
+	{% tabButton id="gallery", label="Gallery" %}
+	{% tabButton id="permissions", label="Permissions" %}
+{% endtabList %}
+
+<!-- 
+MAIN PANEL 
+-->
+{% tabPanel id="main", listId="character" %}
+	<article class="card card-{{name | slugify}}">
+		<header class="card-header">
+			<h1>{{name}}</h1>
+		</header>
+		<div class="card-left card-reference">
+			{% set refImgDesc = "Reference image of " + name %}
+			{% lightboxImg "thumbnails/character/example.png", refImgDesc %}
+		</div>
+		<div class="card-right card-details">
+			<table class="card-table">
+				<tbody>
+					{% keyValue "Full name", "Aliases, etc." %}
+					{% keyValue "Title", subtitle %}
+					{% keyValue "Gender", "Example" %}
+					{% keyValue "Pronouns", pronouns %}
+					{% keyValue "Orientation", "Example" %}
+					{% keyValue "Species", "Example" %}
+					{% keyValue "Occupation", "Example" %}
+					{% keyValue "Residence", "Example" %}
+				</tbody>
+			</table>
+			<div class="card-biography">
+					{% renderTemplate "md,njk" %}
+						A basic summary of who this character is. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						Morbi varius libero non sem dapibus, eget viverra nisl sagittis. 
+						
+						Ut interdum mi non sagittis euismod. Suspendisse id venenatis massa. Aliquam ornare, nibh sit amet
+						interdum elementum, leo sem laoreet nibh, at sollicitudin diam ipsum eu risus. Aenean gravida eu 
+						nibh id tincidunt. Pellentesque lorem mauris, cursus sed ligula eget, cursus posuere risus. Phasellus
+						vel enim volutpat, sagittis augue at, condimentum ex.
+					{% endrenderTemplate %}
+			</div>
+		</div>
+	</article>
+
+	{% renderTemplate "md,njk" %}
+## Biography
+	
+	Here is where you write your character info, in Markdown!
+
+## Appearance
+
+## Personality
+
+	{% endrenderTemplate %}
+{% endtabPanel %}
+
+<!-- 
+GALLERY PANEL 
+-->
+{% tabPanel id="gallery", listId="character" %}
+	{% gallery %}
+		{% lightboxImg "thumbnails/character/example.png", "Example image", { 
+			artist: "huck", 
+			altText: "Kung pow penis",
+			license: "All rights reserved",
+			uploadDate: "2023-11-20" } %}
+		{% lightboxImg "banner.jpg", "Example image", { 
+			artist: "huck", 
+			altText: "Kung pow penis",
+			license: "All rights reserved",
+			uploadDate: "2023-11-20",
+			lookGuys: "More lines",
+			ofMetadata: "Isn't that coool???????" } %}
+		{% lightboxImg "portrait.jpg", "Example image", { 
+			line: "One line of metadata that is very very very very ery  very very very very ery  very very very very ery  very very very very ery long"
+		} %}
+		{% lightboxImg "thumbnails/character/example.png", "Example image", { artist: "huck" } %}
+		{% lightboxImg "thumbnails/character/example.png", "Example image" %}
+		{% lightboxImg "thumbnails/character/example.png", "Example image" %}
+		{% lightboxImg "thumbnails/character/example.png", "Example image" %}
+		{% lightboxImg "thumbnails/character/example.png", "Example image" %}
+		{% lightboxImg "thumbnails/character/example.png", "Example image" %}
+		{% lightboxImg "thumbnails/character/example.png", "Example image" %}
+		{% lightboxImg "thumbnails/character/example.png", "Example image" %}
+		{% lightboxImg "thumbnails/character/example.png", "Example image" %}
+		{% lightboxImg "thumbnails/character/example.png", "Example image" %}
+	{% endgallery %}
+{% endtabPanel %}
+
+<!-- 
+PERMISSIONS PANEL 
+-->
+{% tabPanel id="permissions", listId="character" %}
+	<table class="field-table">
+		<caption>Fan work preferences</caption>
+		<tbody>
+			{% keyValue "Fanworks", "Allowed" %}
+			{% keyValue "Commissions", "Ask first" %}
+			{% keyValue "Romance", "Allowed" %}
+			{% keyValue "OC interaction", "Allowed" %}
+			{% keyValue "Shipping", "Canon only" %}
+			{% keyValue "Gore", "Ask first" %}
+			{% keyValue "NSFW", "Ask first" %}
+		</tbody>
+	</table>
+	<table class="field-table">
+		<caption>Trade preferences</caption>
+		<tbody>
+			{% keyValue "Designer", "Me!!!!!!" %}
+			{% keyValue "Sale price", "N/A" %}
+			{% keyValue "Up for sale", "Never" %}
+			{% keyValue "Up for trade", "No" %}
+		</tbody>
+	</table>
+	{% renderTemplate "md,njk" %}
+Elaborate on your character permissions. Are there certain themes/topics that are off-limits?
+How about themes/topics that you'd like to see them featured in more?
+
+### Global preferences
+{% include "_globalCharacterPermissions.md" %}
+	{% endrenderTemplate %}
+{% endtabPanel %}

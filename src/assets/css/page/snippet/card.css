@@ -40,7 +40,6 @@
 .card-reference figure a, .card-reference figure img {
   display: block;
   position: absolute;
-  left: -20px;
   width: auto;
   height: 100%;
 }
