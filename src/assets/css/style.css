@@ -221,8 +221,12 @@ ul.gallery {
   overflow: hidden;
 }
 
+.lightbox-image {
+  display: inline-block;
+}
+
 .lightbox-image a {
-  display: block;
+  display: inline-block;
   height: 100%;
 }
 
