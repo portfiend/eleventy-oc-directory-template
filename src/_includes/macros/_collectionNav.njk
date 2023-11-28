@@ -1,19 +1,19 @@
 {% macro nav(collectionName = "", collectionUrl = "", previous={}, next={}) %}
 	<ul class="navigation-bar">
 		{% if previous %}
-			<li class="nav-previous">
+			<li class="nav-previous" aria-label="Previous in {{collectionName}}">
 			Previous: <a href="{{ previous.url }}">{{ previous.data.pageTitle }}</a>
 			</li>
 		{% endif %}
 
 		{% if collectionName %}
-			<li class="nav-back">
+			<li class="nav-back" aria-label="Go back to {{collectionName}} directory">
 				<a href="{{collectionUrl}}">Back to {{collectionName}}</a>
 			</li>
 		{% endif %}
 
 		{% if next %}
-			<li class="nav-next">
+			<li class="nav-next" aria-label="Next in {{collectionName}}">
 			Next: <a href="{{ next.url }}">{{ next.data.pageTitle }}</a>
 			</li>
 		{% endif %}

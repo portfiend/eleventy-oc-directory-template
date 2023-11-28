@@ -27,7 +27,8 @@ settings: []
 	</main>
 
 	<footer>
-		<ul>
+
+		<ul aria-label="List of settings">
 			{% for settingPage in settingPages %}
 				<li>
 					<a 
@@ -43,5 +44,14 @@ settings: []
 		{% set previous = collections.character | getPreviousCollectionItem %}
 		{% set next = collections.character | getNextCollectionItem %}
 		{{ collectionNav("Characters", "/characters", previous, next) }}
+
+		<h2 id="tag-header">Tags</h2>
+		<ul aria-labelledby="tag-header">
+			{% for tag in tags %}
+				<li>
+					<a href="/tagged/{{tag | slugify}}" class="tag-link tag-button">{{tag}}</a>
+				</li>
+			{% endfor %}
+		</ul>
 	</footer>
 </article>
