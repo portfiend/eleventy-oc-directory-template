@@ -1,16 +1,17 @@
 :root {
-  --color-primary: lightskyblue;
-  --color-secondary: #eee;
-  --color-text: #333;
-  --color-accent: tan;
-  --color-interactive: Sienna;
-  --color-highlight: lightblue;
+  --color-primary: #222;
+  --color-secondary: #555;
+  --color-text: #ddd;
+  --color-border: black;
+  --color-accent: #333;
+  --color-interactive: #fff;
+  --color-highlight: #282828;
   
 	--bg-body: var(--color-primary);
 	--bg-main: var(--color-secondary);
 	--bg-sidebar: var(--bg-main);
-	--border-container: 4px solid var(--color-text);
-	--border-thumbnail: 2px solid var(--color-text);
+	--border-container: 4px solid var(--color-border);
+	--border-thumbnail: 2px solid var(--color-border);
   --cw-shadow-color: rgba(0, 0, 0, 0.65);
 	--cw-visible-color: rgba(0, 0, 0, 0.1);
 }
@@ -75,7 +76,7 @@ a:visited {
 
 hr { 
 	border: none;
-	border-bottom: 1px solid var(--color-text);
+	border-bottom: 1px solid var(--color-border);
 }
 
 .thumb-list {
@@ -105,14 +106,16 @@ hr {
 }
 
 [role=tabpanel] {
-  border: 1px solid var(--color-text);
+  border: 1px solid var(--color-border);
   padding: 10px 30px;
 	margin: 0 -20px;
   background: rgba(0, 0, 0, 0.025);
 }
 
 [role=tab] {
-  border: 1px solid var(--color-text);
+  background: var(--color-secondary);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
 	border-bottom-width: 0;
   padding: 5px;
 	cursor: pointer;
@@ -219,7 +222,7 @@ p > .blur-content {
 }
 
 .field-row {
-  border-bottom: 1px solid var(--color-text);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .field-row:last-child {
@@ -379,7 +382,7 @@ ul.gallery {
 .tag-button {
   display: inline-block;
   text-decoration: none;
-  background-color: var(--color-interactive);
+  background-color: var(--color-accent);
   color: white !important;
   padding: 5px;
   border-radius: 500px;

@@ -49,7 +49,7 @@
   flex-direction: column;
   gap: 20px;
   grid-area: details;
-  background-color: #ddd;
+  background-color: rgba(0,0,0,0.15);
   border-radius: 5px;
   padding: 10px;
 }
