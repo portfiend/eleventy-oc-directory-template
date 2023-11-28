@@ -1,11 +1,12 @@
 :root {
-  --color-primary: #222;
-  --color-secondary: #555;
-  --color-text: #ddd;
-  --color-border: black;
-  --color-accent: #333;
-  --color-interactive: #fff;
-  --color-highlight: #282828;
+  --color-primary: #aaa;
+  --color-secondary: #eee;
+  --color-text: #222;
+  --color-border: #222;
+  --color-accent: #aaa;
+  --color-interactive: blue;
+  --color-interactive-bg: blue;
+  --color-highlight: #ccc;
   
 	--bg-body: var(--color-primary);
 	--bg-main: var(--color-secondary);
@@ -382,7 +383,7 @@ ul.gallery {
 .tag-button {
   display: inline-block;
   text-decoration: none;
-  background-color: var(--color-accent);
+  background-color: var(--color-interactive-bg);
   color: white !important;
   padding: 5px;
   border-radius: 500px;
