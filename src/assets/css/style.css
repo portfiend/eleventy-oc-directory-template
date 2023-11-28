@@ -1,9 +1,16 @@
 :root {
-	--bg-body: #aaa;
-	--bg-main: #eee;
+  --color-primary: lightskyblue;
+  --color-secondary: #eee;
+  --color-text: #333;
+  --color-accent: tan;
+  --color-interactive: Sienna;
+  --color-highlight: lightblue;
+  
+	--bg-body: var(--color-primary);
+	--bg-main: var(--color-secondary);
 	--bg-sidebar: var(--bg-main);
-	--border-container: 4px solid #222;
-	--border-thumbnail: 2px solid #222;
+	--border-container: 4px solid var(--color-text);
+	--border-thumbnail: 2px solid var(--color-text);
   --cw-shadow-color: rgba(0, 0, 0, 0.65);
 	--cw-visible-color: rgba(0, 0, 0, 0.1);
 }
@@ -11,6 +18,7 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	background: var(--bg-body);
+  color: var(--color-text);
 	display: grid;
 	grid-template-areas: "sidebar main";
 	grid-auto-columns: 180px 800px;
@@ -20,9 +28,24 @@ body {
 	overflow-x: hidden;
 }
 
+::selection {
+  background-color: var(--color-highlight);
+  color: var(--color-text);
+}
+
+a:link {
+  color: var(--color-interactive);
+}
+
+a:visited {
+  color: var(--color-interactive);
+}
+
 #skip-links a {
   position: absolute;
   top: -3em;
+  color: black;
+  background-color: white;
 }
 
 #skip-links a:focus {
@@ -52,7 +75,7 @@ body {
 
 hr { 
 	border: none;
-	border-bottom: 1px solid #555;
+	border-bottom: 1px solid var(--color-text);
 }
 
 .thumb-list {
@@ -82,21 +105,22 @@ hr {
 }
 
 [role=tabpanel] {
-  border: 1px solid #444;
+  border: 1px solid var(--color-text);
   padding: 10px 30px;
 	margin: 0 -20px;
   background: rgba(0, 0, 0, 0.025);
 }
 
 [role=tab] {
-  border: 1px solid #444;
+  border: 1px solid var(--color-text);
 	border-bottom-width: 0;
   padding: 5px;
 	cursor: pointer;
 }
 
 [role=tab][aria-selected=true] {
-  background: #ccc;
+  background: var(--color-highlight);
+  color: var(--color-text);
 	cursor: initial;
 }
 
@@ -154,13 +178,17 @@ p > .blur-content {
 }
 
 .navigation-bar {
-  background-color: #ccc;
+  background-color: var(--color-accent);
   margin: 0 -40px;
   padding: 10px;
   display: grid;
   grid-template-areas: "previous back next";
   grid-template-columns: repeat(3, 1fr);
   list-style: none;
+}
+
+.navigation-bar a {
+  color: var(--color-text);
 }
 
 .nav-back {
@@ -191,7 +219,7 @@ p > .blur-content {
 }
 
 .field-row {
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid var(--color-text);
 }
 
 .field-row:last-child {
@@ -262,7 +290,7 @@ ul.gallery {
 }
 
 #lb-metadata {
-  background: #eee;
+  background: var(--color-secondary);
   width: 100vw;
   height: 100px;
   box-sizing: border-box;
@@ -301,7 +329,6 @@ ul.gallery {
 #lb-metalist > tr td {
   text-align: right;
 }
-
 
 #lb-preview {
   cursor: pointer;
