@@ -13,7 +13,7 @@ settings: []
 
 ---
 
-{% from "macros/_collectionNav.njk" import nav as collectionNav %}
+{% from "macros/_nav.njk" import tagNav, collectionNav %}
 
 {% set settingPages = [] %}
 {% for _setting in settings %}
@@ -44,14 +44,7 @@ settings: []
 		{% set previous = collections.character | getPreviousCollectionItem %}
 		{% set next = collections.character | getNextCollectionItem %}
 		{{ collectionNav("Characters", "/characters", previous, next) }}
-
-		<h2 id="tag-header">Tags</h2>
-		<ul aria-labelledby="tag-header">
-			{% for tag in tags %}
-				<li>
-					<a href="/tagged/{{tag | slugify}}" class="tag-link tag-button">{{tag}}</a>
-				</li>
-			{% endfor %}
-		</ul>
+		
+		{{ tagNav(tags) }}
 	</footer>
 </article>
