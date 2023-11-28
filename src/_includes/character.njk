@@ -26,24 +26,22 @@ settings: []
 		{{ content | safe }}
 	</main>
 
-	<footer>
-		<nav>
-			<ul>
-				{% for settingPage in settingPages %}
-					<li>
-						<a 
-						class="setting-link" 
-						href="{{settingPage.url}}"
-						data-id="{{settingPage.data.id}}">
-						Go to {{settingPage.data.name}}
-						</a>
-					</li>
-				{% endfor %}
-			</ul>
+<footer>
+		<ul>
+			{% for settingPage in settingPages %}
+				<li>
+					<a 
+					class="setting-link" 
+					href="{{settingPage.url}}"
+					data-id="{{settingPage.data.id}}">
+					Go to {{settingPage.data.name}}
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
 
-			{% set previous = collections.character | getPreviousCollectionItem %}
-			{% set next = collections.character | getNextCollectionItem %}
-			{{ collectionNav("Characters", "/characters", previous, next) }}
-		</nav>
+		{% set previous = collections.character | getPreviousCollectionItem %}
+		{% set next = collections.character | getNextCollectionItem %}
+		{{ collectionNav("Characters", "/characters", previous, next) }}
 	</footer>
 </article>
