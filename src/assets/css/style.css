@@ -352,3 +352,40 @@ ul.gallery {
   max-width: 1200px;
   max-height: calc(100vh - 180px);
 }
+
+.tag-navigation {
+  display: block;
+  padding: 10px 0;
+}
+
+.tag-navigation h2 {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  margin-right: 10px;
+}
+
+.tag-navigation ul {
+  display: inline;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tag-navigation li {
+  display: inline;
+}
+
+.tag-button {
+  display: inline-block;
+  text-decoration: none;
+  background-color: var(--color-interactive);
+  color: white !important;
+  padding: 5px;
+  border-radius: 500px;
+  transition: background-color 300ms;
+}
+
+.tag-button:hover {
+  background-color: var(--color-accent);
+}

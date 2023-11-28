@@ -1,4 +1,4 @@
-{% macro collectionNav(collectionName = "", collectionUrl = "", previous={}, next={}) %}
+{% macro collectionNav(collectionName = "", collectionUrl = "", previous = {}, next = {}) %}
 	<ul class="navigation-bar">
 		{% if previous %}
 			<li class="nav-previous" aria-label="Previous in {{collectionName}}">
@@ -21,12 +21,14 @@
 {% endmacro %}
 
 {% macro tagNav(tags) %}
-	<h2 id="tag-header">Tags</h2>
-	<ul aria-labelledby="tag-header">
-		{% for tag in tags %}
-			<li>
-				<a href="/tagged/{{tag | slugify}}" class="tag-link tag-button">{{tag}}</a>
-			</li>
-		{% endfor %}
-	</ul>
+	<div class="tag-navigation">
+		<h2 id="tag-header">Tags:</h2>
+		<ul aria-labelledby="tag-header">
+			{% for tag in tags %}
+				<li>
+					<a href="/tagged/{{tag | slugify}}" class="tag-link tag-button">{{tag}}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
 {% endmacro %}
