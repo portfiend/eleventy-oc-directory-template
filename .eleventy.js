@@ -15,6 +15,10 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addWatchTarget("./src/assets/");
 
 	// Filters
+	
+	eleventyConfig.addFilter("namespaced", (collection, namespace) => {
+		return collection.filter(item => item.data.id && item.data.id.startsWith(namespace + ":"));
+	})
 
 	eleventyConfig.addFilter("getPageById", (collection, id) => {
 		return collection.find(item => item.data.id === id);

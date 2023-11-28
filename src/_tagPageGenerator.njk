@@ -1,0 +1,31 @@
+---
+layout: base.njk
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+
+permalink: /tagged/{{ tag }}/
+---
+<h1>Tagged “{{ tag }}”</h1>
+
+{% for namespace, data in metadata.namespaces %}
+  {% set taglist = collections[tag] | namespaced(namespace) %}
+  <h2>
+    {{data.title}} ({{taglist | length}})
+  </h2>
+
+  <ol>
+    {% for post in taglist | reverse %}
+      <li>
+        <a href="{{ post.url }}">{{ post.data.pageTitle }}</a>
+      </li>
+    {% endfor %}
+  </ol>
+{% endfor %}
+
+<p>
+  <a href="/tags">Back to tag directory</a>
+</p>
