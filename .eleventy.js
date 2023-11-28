@@ -56,7 +56,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addShortcode("keyValue", (key, value) => {
 		return `
 			<tr class="field-row">
-				<th class="field-key">
+				<th scope="row" class="field-key">
 					${key}
 				</th>
 				<td class="field-value">
