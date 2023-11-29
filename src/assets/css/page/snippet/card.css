@@ -13,7 +13,7 @@
   grid-area: header;
   background: var(--color-accent);
   padding: 10px;
-  border-radius: 5px;
+  border-radius: var(--container-border-radius);
 }
 
 .card-header h1 {
@@ -24,7 +24,7 @@
   grid-area: reference;
   position: relative;
   overflow: hidden;
-  border-radius: 5px;
+  border-radius: var(--container-border-radius);
 }
 
 .card-reference figure {
@@ -50,7 +50,7 @@
   gap: 20px;
   grid-area: details;
   background-color: rgba(0,0,0,0.15);
-  border-radius: 5px;
+  border-radius: var(--container-border-radius);
   padding: 10px;
 }
 

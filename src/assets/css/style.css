@@ -15,6 +15,8 @@
 	--border-thumbnail: 2px solid var(--color-border);
   --cw-shadow-color: rgba(0, 0, 0, 0.65);
 	--cw-visible-color: rgba(0, 0, 0, 0.1);
+  
+  --container-border-radius: 10px;
 }
 
 body {
@@ -60,6 +62,7 @@ a:visited {
 	box-sizing: border-box;
 	padding: 10px 40px;
 	border: var(--border-container);
+  border-radius: var(--container-border-radius);
 }
 
 #sidebar {
@@ -68,6 +71,7 @@ a:visited {
 	box-sizing: border-box;
 	padding: 10px 20px;
 	border: var(--border-container);
+  border-radius: var(--container-border-radius);
 }
 
 #sidebar nav > ul {
@@ -111,6 +115,7 @@ hr {
   padding: 10px 30px;
 	margin: 0 -20px;
   background: rgba(0, 0, 0, 0.025);
+  border-radius: var(--container-border-radius);
 }
 
 [role=tab] {
@@ -120,6 +125,7 @@ hr {
 	border-bottom-width: 0;
   padding: 5px;
 	cursor: pointer;
+  border-radius: var(--container-border-radius) var(--container-border-radius) 0 0;
 }
 
 [role=tab][aria-selected=true] {
@@ -258,7 +264,7 @@ ul.gallery {
   display: flex;
   justify-content: center;
   border: 1px solid #aaa;
-  border-radius: 5px;
+  border-radius: var(--container-border-radius);
   overflow: hidden;
 }
 
