@@ -17,17 +17,28 @@ document.addEventListener("DOMContentLoaded", () => {
 		const dataFields = [];
 		for (key in img.dataset) {
 			if (!key.startsWith("metadata")) return;
+			const value = img.dataset[key];
 
 			const dataContainer = document.createElement("tr");
 			const dataKey = document.createElement("th");
 			dataKey.textContent = key.slice(8);
 			const dataValue = document.createElement("td");
-			dataValue.textContent = img.dataset[key];
+
+			if (isURL(value)) {
+				const dataUrl = document.createElement("a");
+				dataUrl.href = value;
+				dataUrl.textContent = value;
+				dataValue.append(dataUrl)
+			}
+			else {
+				dataValue.textContent = value;
+			}
+
 			dataContainer.appendChild(dataKey);
 			dataContainer.appendChild(dataValue);
 			dataFields.push(dataContainer);
 		}
-		lbMetalist.replaceChildren(... dataFields);
+		lbMetalist.replaceChildren(...dataFields);
 
 		lbOverlay.hidden = false;
 	}
@@ -43,10 +54,23 @@ document.addEventListener("DOMContentLoaded", () => {
 	for (let l = 0; l < links.length; l++) {
 		const link = links[l];
 		const linkImg = link.querySelector('img');
-	
+
 		link.addEventListener("click", (event) => {
 			event.preventDefault();
 			showLightbox(linkImg);
 		})
 	}
 });
+
+const isURL = (string) => {
+	let url;
+
+	try {
+		url = new URL(string);
+	} 
+	catch(error) {
+		return false;
+	}
+
+	return url.protocol === "http:" || url.protocol === "https:";
+}
