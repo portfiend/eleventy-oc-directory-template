@@ -4,8 +4,8 @@
   --color-text: #222;
   --color-border: #222;
   --color-accent: #aaa;
-  --color-interactive: blue;
-  --color-interactive-bg: blue;
+  --color-interactive: #0066CC;
+  --color-interactive-bg: #0066CC;
   --color-highlight: #ccc;
   
 	--bg-body: var(--color-primary);
