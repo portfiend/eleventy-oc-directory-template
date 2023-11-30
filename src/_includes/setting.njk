@@ -1,0 +1,28 @@
+---
+layout: base.njk
+tags: [setting]
+
+pageTitle: Setting Name
+thumbnailUrl: thumbnails/setting/example.png
+pageThemes: []
+
+name: Setting Name
+title: Informational title
+
+---
+
+{% from "macros/_nav.njk" import tagNav, collectionNav %}
+
+<article>
+	<main>
+		{{ content | safe }}
+	</main>
+
+	<footer>
+		{% set previous = collections.setting | alphabetizePages | getPreviousCollectionItem %}
+		{% set next = collections.setting | alphabetizePages | getNextCollectionItem %}
+		{{ collectionNav("Settings", "/settings", previous, next) }}
+		
+		{{ tagNav(tags) }}
+	</footer>
+</article>
