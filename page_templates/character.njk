@@ -81,30 +81,23 @@ GALLERY PANEL
 {% tabPanel id="gallery", listId="character" %}
 	{% gallery %}
 		{% lightboxImg "thumbnails/character/example.png", "Example image", { 
-			artist: "huck", 
-			altText: "Kung pow penis",
+			artist: "Artist name here",
+			artist_website: "<a>https://example.com</a>",
 			license: "All rights reserved",
-			uploadDate: "2023-11-20" } %}
-		{% lightboxImg "banner.jpg", "Example image", { 
-			artist: "huck", 
-			altText: "Kung pow penis",
-			license: "All rights reserved",
-			uploadDate: "2023-11-20",
-			lookGuys: "More lines",
-			ofMetadata: "Isn't that coool???????" } %}
-		{% lightboxImg "portrait.jpg", "Example image", { 
-			line: "One line of metadata that is very very very very ery  very very very very ery  very very very very ery  very very very very ery long"
+			creation_date: "2023-11-20"
 		} %}
-		{% lightboxImg "thumbnails/character/example.png", "Example image", { artist: "huck" } %}
-		{% lightboxImg "thumbnails/character/example.png", "Example image" %}
-		{% lightboxImg "thumbnails/character/example.png", "Example image" %}
-		{% lightboxImg "thumbnails/character/example.png", "Example image" %}
-		{% lightboxImg "thumbnails/character/example.png", "Example image" %}
-		{% lightboxImg "thumbnails/character/example.png", "Example image" %}
-		{% lightboxImg "thumbnails/character/example.png", "Example image" %}
-		{% lightboxImg "thumbnails/character/example.png", "Example image" %}
-		{% lightboxImg "thumbnails/character/example.png", "Example image" %}
-		{% lightboxImg "thumbnails/character/example.png", "Example image" %}
+		{% lightboxImg "thumbnails/character/example.png", "Example image", {
+			artist: "Artist name here",
+			artist_website: "<a>https://example.com</a>",
+			license: "All rights reserved",
+			creation_date: "2023-11-20"
+		} %}
+		{% lightboxImg "thumbnails/character/example.png", "Example image", {
+			artist: "Artist name here",
+			artist_website: "<a>https://example.com</a>",
+			license: "All rights reserved",
+			creation_date: "2023-11-20"
+		} %}
 	{% endgallery %}
 {% endtabPanel %}
 
