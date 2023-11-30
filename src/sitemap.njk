@@ -1,0 +1,14 @@
+---
+layout: base.njk
+pageTitle: Sitemap
+---
+
+<h1>Sitemap</h1>
+
+<ol aria-label="List of all pages">
+	{% for page in collections.all | alphabetizePages %}
+		<li>
+			<a href="{{page.url}}">{{page.data.pageTitle}}</a>
+		</li>
+	{% endfor %}
+</ol>

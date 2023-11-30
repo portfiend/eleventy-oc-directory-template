@@ -14,7 +14,7 @@ eleventyComputed:
 <h1>Tagged “{{tag}}”</h1>
 
 {% for namespace, data in metadata.namespaces %}
-  {% set taglist = collections[tag] | namespaced(namespace) %}
+  {% set taglist = collections[tag] | namespaced(namespace) | alphabetizePages %}
   <h2>
     {{data.title}} ({{taglist | length}})
   </h2>

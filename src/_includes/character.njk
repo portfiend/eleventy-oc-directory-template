@@ -41,8 +41,8 @@ settings: []
 			{% endfor %}
 		</ul>
 
-		{% set previous = collections.character | getPreviousCollectionItem %}
-		{% set next = collections.character | getNextCollectionItem %}
+		{% set previous = collections.character | alphabetizePages | getPreviousCollectionItem %}
+		{% set next = collections.character | alphabetizePages | getNextCollectionItem %}
 		{{ collectionNav("Characters", "/characters", previous, next) }}
 		
 		{{ tagNav(tags) }}

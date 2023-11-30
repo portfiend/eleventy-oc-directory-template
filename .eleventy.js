@@ -15,6 +15,15 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addWatchTarget("./src/assets/");
 
 	// Filters
+
+	eleventyConfig.addFilter("alphabetizePages", (pages) => {
+		pages.sort((a, b) => {
+			a = (a.data.pageTitle || "").toLowerCase();
+			b = (b.data.pageTitle || "").toLowerCase();
+			return a > b ? 1 : -1;
+		});
+		return pages;
+	})
 	
 	eleventyConfig.addFilter("namespaced", (collection, namespace) => {
 		return collection.filter(item => item.data.id && item.data.id.startsWith(namespace + ":"));
