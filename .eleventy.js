@@ -80,14 +80,16 @@ module.exports = function (eleventyConfig) {
 	})
 
 	eleventyConfig.addShortcode("thumbnail", (page) => {
+		const title = page.data.name || page.data.pageTitle || "";
+
 		return `
 			<article class="thumb-item-box">
 				<a href="${page.url}">
 					<img 
-						alt="${page.data.pageTitle}" 
+						alt="${title}" 
 						src="${metadata.assets.img}/${page.data.thumbnailUrl}" 
 						class="thumbnail"/>
-					<div class="thumb-footer">${page.data.pageTitle}</div>
+					<div class="thumb-footer">${title}</div>
 				</a>
 			</article>
 		`;
