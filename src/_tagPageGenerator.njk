@@ -8,8 +8,10 @@ pagination:
     - all
 
 permalink: /tagged/{{ tag }}/
+eleventyComputed:
+  pageTitle: Tagged “{{ tag }}”
 ---
-<h1>Tagged “{{ tag }}”</h1>
+<h1>Tagged “{{tag}}”</h1>
 
 {% for namespace, data in metadata.namespaces %}
   {% set taglist = collections[tag] | namespaced(namespace) %}
