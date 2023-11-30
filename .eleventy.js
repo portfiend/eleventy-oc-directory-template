@@ -84,7 +84,7 @@ module.exports = function (eleventyConfig) {
 		`;
 	})
 
-	eleventyConfig.addPairedNunjucksShortcode("blurred", (content, warning) => {
+	eleventyConfig.addPairedShortcode("blurred", (content, warning) => {
 		const warningType = warning === "adult" ? "Adult content" : contentWarning.siteWarnings[warning].name;
 
 		return `<div class="blur-content blur-${warning}" data-blurred="" tabindex="0">
@@ -97,7 +97,7 @@ module.exports = function (eleventyConfig) {
 		</div>`
 	});
 
-	eleventyConfig.addPairedNunjucksShortcode("tabList", (content, options) => {
+	eleventyConfig.addPairedShortcode("tabList", (content, options) => {
 		const id = "tabList-" + (options.id || "null");
 		const title = options.title || "";
 
@@ -106,7 +106,7 @@ module.exports = function (eleventyConfig) {
 		</nav>`
 	});
 
-	eleventyConfig.addNunjucksShortcode("tabButton", options => {
+	eleventyConfig.addShortcode("tabButton", options => {
 		const selected = options.selected ? "true" : "false";
 		const tabID = "tab-" + (options.id || "null");
 		const panelID = "panel-" + (options.id || "null");
@@ -124,7 +124,7 @@ module.exports = function (eleventyConfig) {
 		</button>`
 	});
 
-	eleventyConfig.addPairedNunjucksShortcode("tabPanel", (content, options) => {
+	eleventyConfig.addPairedShortcode("tabPanel", (content, options) => {
 		const tabID = "tab-" + (options.id || "null");
 		const panelID = "panel-" + (options.id || "null");
 		const listId = "tabList-" + (options.listId || "null");
