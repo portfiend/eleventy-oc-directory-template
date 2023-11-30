@@ -11,15 +11,15 @@
 			<link rel="stylesheet" href="{{metadata.assets.css}}/page/{{theme}}">
 		{% endfor %}
 
-		{% if settings.enableContentWarnings %}
+		{% if options.enableContentWarnings %}
 			<script src="{{metadata.assets.js}}/contentWarning.js"></script>
 		{% endif %}
 
-		{% if settings.enableLightbox %}
+		{% if options.enableLightbox %}
 			<script src="{{metadata.assets.js}}/lightbox.js"></script>
 		{% endif %}
 		
-		{% if settings.enableWidgets %}
+		{% if options.enableWidgets %}
 			<script src="{{metadata.assets.js}}/widgets.js"></script>
 		{% endif %}
 	</head>
@@ -34,10 +34,11 @@
 			{{content | safe}}
 		</main>
 
-		{% if settings.enableContentWarnings %}
+		{% if options.enableContentWarnings %}
 			{% include "_contentWarning.njk" %}
 		{% endif %}
-		{% if settings.enableLightbox %}
+		
+		{% if options.enableLightbox %}
 			{% include "_lightbox.njk" %}
 		{% endif %}
 	</body>
