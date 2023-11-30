@@ -16,3 +16,15 @@ This is an [Eleventy](https://www.11ty.dev/) template designed for a original ch
   - Force users to click an "I am an adult" checkbox for mature rated websites
 - [`@mdit/plugin-attrs`](https://mdit-plugins.github.io/attrs.html) for adding attributes to Markdown elements
 - [`markdown-it-div`](https://www.npmjs.com/package/markdown-it-div) for creating divs in Markdown without HTML
+
+## Suggested Uses
+
+These features will not be added to the template project, but if you're learning Eleventy and looking for ways to improve your skills, I recommend trying these things!
+
+- Generate an [RSS feed](https://www.11ty.dev/docs/plugins/rss/) of your newest pages.
+  - The RSS specification can be found [here](https://www.rssboard.org/rss-specification).
+- Add new page types to fit your needs - Species, Organizations, Animals, Languages, Lore, etc.
+  - Make sure to add links to the navigation sidebar!
+  - Namespaces are defined in `src/_data/namespaces.json`. These are primarily used for the tag pages.
+  - Optionally, create templates and add them to the `page_templates` folder.
+- Change the way your website shows in embeds (e.g. Discord) using HTML meta tags.
