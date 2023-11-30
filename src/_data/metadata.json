@@ -5,15 +5,5 @@
 		"css": "/assets/css",
 		"img": "/assets/img",
 		"js": "/assets/js"
-	},
-	"namespaces": {
-		"character": {
-			"plural": "characters",
-			"title": "Characters"
-		},
-		"setting": {
-			"plural": "settings",
-			"title": "Settings"
-		}
 	}
 }

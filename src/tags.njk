@@ -12,7 +12,7 @@ pageTitle: Tags
 		{% if tag !== "all" %}
 			<li>
 				<a href="/tagged/{{tag}}">{{tag}}</a> - 
-				{% for namespace, data in metadata.namespaces %}
+				{% for namespace, data in namespaces %}
 					{{collections[tag] | namespaced(namespace) | length}} {{data.plural}}
 				{% endfor %}
 			</li>

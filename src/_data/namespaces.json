@@ -1,0 +1,10 @@
+{
+	"character": {
+		"plural": "characters",
+		"title": "Characters"
+	},
+	"setting": {
+		"plural": "settings",
+		"title": "Settings"
+	}
+}
