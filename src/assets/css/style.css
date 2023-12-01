@@ -78,13 +78,13 @@ a:visited {
 	grid-area: rightsidebar;
 }
 
-#right-sidebar ul {
-  margin-top: 5px;
-}
-
 #right-sidebar h2 {
   font-size: 18px;
   margin-bottom: 0;
+}
+
+#right-sidebar ul {
+  margin-top: 5px;
 }
 
 .sidebar {
@@ -103,6 +103,10 @@ a:visited {
 hr { 
 	border: none;
 	border-bottom: 1px solid var(--color-border);
+}
+
+footer {
+  margin-top: 1em;
 }
 
 .thumb-list {
