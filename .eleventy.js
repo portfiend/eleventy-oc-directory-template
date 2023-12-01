@@ -61,7 +61,7 @@ module.exports = function (eleventyConfig) {
 		`
 	});
 
-	eleventyConfig.addShortcode("lightboxImg", (src, alt, meta) => {
+	eleventyConfig.addShortcode("lightboxImg", (src, alt, meta, thumbnailSrc) => {
 		let formattedMetadata = "";
 		if (meta && meta.constructor == Object) {
 			let metaStrings = [];
@@ -74,7 +74,7 @@ module.exports = function (eleventyConfig) {
 		return `
 			<figure class="lightbox-image">
 				<a class="lightbox-link" href="${metadata.assets.img}/${src}">
-					<img src="${metadata.assets.img}/${src}" alt="${alt}" ${formattedMetadata} />
+					<img src="${metadata.assets.img}/${thumbnailSrc || src}" alt="${alt}" ${formattedMetadata} />
 				</a>
 			</figure>
 		`
