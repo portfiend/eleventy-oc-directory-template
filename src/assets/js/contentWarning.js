@@ -49,7 +49,7 @@ const initWarningCheckboxes = (_warnings, dialog) => {
 
 		checkbox.addEventListener("setDisabled", (e) => {
 			checkbox.disabled = e.disable;
-			
+
 			if (checkbox.disabled) checkbox.checked = false;
 
 			const event = new Event("change");

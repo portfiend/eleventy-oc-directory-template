@@ -34,7 +34,7 @@ const selectTab = (listId, tabId) => {
 	const tabList = tabs[listId];
 	if (!tabList) return;
 
-	for (button in tabList) {
+	for (const button in tabList) {
 		const tabButton = document.querySelector("#" + button + '[role="tab"]');
 		tabButton.setAttribute("aria-selected", tabButton.id === tabId);
 		tabButton.disabled = tabButton.id === tabId;

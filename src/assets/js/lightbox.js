@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		lbCaption.textContent = (img.getAttribute("alt") || "");
 
 		const dataFields = [];
-		for (key in img.dataset) {
+		for (const key in img.dataset) {
 			if (!key.startsWith("metadata")) return;
 			const value = img.dataset[key];
 
@@ -67,8 +67,8 @@ const isURL = (string) => {
 
 	try {
 		url = new URL(string);
-	} 
-	catch(error) {
+	}
+	catch (error) {
 		return false;
 	}
 

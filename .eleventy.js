@@ -17,12 +17,12 @@ module.exports = function (eleventyConfig) {
 		const links = [];
 		const id = this.ctx.id;
 		if (!id) return;
-		
-		collection.forEach(page => { 
+
+		collection.forEach(page => {
 			if (!Array.isArray(page.data.linkedPages)) return;
 			if (page.data.linkedPages.includes(id)) {
 				links.push(page);
-			} 
+			}
 		});
 
 		return links;
