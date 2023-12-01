@@ -11,10 +11,13 @@ pageTitle: Tags
 	{% for tag in collections | keys %}
 		{% if tag !== "all" %}
 			<li>
-				<a href="/tagged/{{tag}}">{{tag}}</a> - 
+				<a href="/tagged/{{tag}}">{{tag}}</a>
+				{% set namespaceCounts = [] %}
 				{% for namespace, data in namespaces %}
-					{{collections[tag] | namespaced(namespace) | length}} {{data.title | lower}}
+					{% set temp %}{{collections[tag] | namespaced(namespace) | length}} <abbr title="{{data.title | lower}}">{{data.abbr}}</abbr>{% endset %}
+					{{ namespaceCounts.push(temp) and "" }}
 				{% endfor %}
+				({{ namespaceCounts | join(", ") | safe }})
 			</li>
 		{% endif %}
 	{% endfor %}

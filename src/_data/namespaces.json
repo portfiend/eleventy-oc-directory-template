@@ -1,14 +1,17 @@
 {
 	"character": {
 		"title": "Characters",
-		"url": "/characters"
+		"url": "/characters",
+		"abbr": "C"
 	},
 	"location": {
 		"title": "Locations",
-		"url": "/locations"
+		"url": "/locations",
+		"abbr": "L"
 	},
 	"story": {
 		"title": "Stories",
-		"url": "/stories"
+		"url": "/stories",
+		"abbr": "S"
 	}
 }
