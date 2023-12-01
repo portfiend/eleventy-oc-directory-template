@@ -24,7 +24,10 @@ These features will not be added to the template project, but if you're learning
 - Generate an [RSS feed](https://www.11ty.dev/docs/plugins/rss/) of your newest pages.
   - The RSS specification can be found [here](https://www.rssboard.org/rss-specification).
 - Add new page types to fit your needs - Species, Organizations, Animals, Languages, Lore, etc.
-  - Make sure to add links to the navigation sidebar!
-  - Namespaces are defined in `src/_data/namespaces.json`. These are primarily used for the tag pages.
+  - Namespaces are defined in `src/_data/namespaces.json`.
+    - Adding a new namespace to this file automatically adds it to sidebars, tag pages, and page footers.
+  - Create a directory to hold your new namespace's files.
+    - Make sure to include the data `.json` file!
   - Optionally, create templates and add them to the `page_templates` folder.
 - Change the way your website shows in embeds (e.g. Discord) using HTML meta tags.
+  - There's a [plugin for this](https://www.npmjs.com/package/eleventy-plugin-metagen), too!
