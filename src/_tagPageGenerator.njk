@@ -4,12 +4,17 @@ pagination:
   data: collections
   size: 1
   alias: tag
+  addAllPagesToCollections: true 
   filter:
     - all
 
 permalink: /tagged/{{ tag }}/
+
 eleventyComputed:
   pageTitle: Tagged “{{ tag }}”
+
+addAllPagesToCollections: true 
+
 ---
 <h1>Tagged “{{tag}}”</h1>
 

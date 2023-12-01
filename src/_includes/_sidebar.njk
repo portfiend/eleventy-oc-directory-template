@@ -8,12 +8,11 @@
 				<a href="/about">About Us</a>
 			</li>
 			<hr>
-			<li>
-				<a href="/characters">Characters</a>
-			</li>
-			<li>
-				<a href="/settings">Settings</a>
-			</li>
+			{% for _,namespace in namespaces %}
+				<li>
+					<a href="{{namespace.url}}">{{namespace.title}}</a>
+				</li>
+			{% endfor %}
 			<hr>
 			<li>
 				<a href="/tags">Tags</a>

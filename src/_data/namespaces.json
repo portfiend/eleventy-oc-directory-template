@@ -1,10 +1,17 @@
 {
 	"character": {
 		"plural": "characters",
-		"title": "Characters"
+		"title": "Characters",
+		"url": "/characters"
 	},
-	"setting": {
-		"plural": "settings",
-		"title": "Settings"
+	"location": {
+		"plural": "locations",
+		"title": "Locations",
+		"url": "/locations"
+	},
+	"story": {
+		"plural": "stories",
+		"title": "Stories",
+		"url": "/stories"
 	}
 }

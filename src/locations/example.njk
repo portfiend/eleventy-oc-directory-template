@@ -1,9 +1,10 @@
 ---
-layout: setting.njk
-tags: [example]
+layout: creation.njk
+tags:
+- example
 
 # Used as a short ID for various page data-retrieving functions.
-id: "setting:exampleLocation"
+id: "location:example"
 pageTitle: Location Name
 thumbnailUrl: thumbnails/setting/example.png
 pageThemes:
@@ -11,6 +12,7 @@ pageThemes:
 
 name: Location Name
 subtitle: Informative title
+linkedPages: []
 
 ---
 
@@ -51,8 +53,8 @@ MAIN PANEL
 			</table>
 			<div class="locard-biography">
 				{% renderMarkdown %}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-		Morbi varius libero non sem dapibus, eget viverra nisl sagittis. 
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi varius libero non sem dapibus, eget
+		viverra nisl sagittis. 
 
 		Ut interdum mi non sagittis euismod. Suspendisse id venenatis massa. Aliquam ornare, nibh sit amet
 		interdum elementum, leo sem laoreet nibh, at sollicitudin diam ipsum eu risus. Aenean gravida eu 
@@ -63,6 +65,7 @@ MAIN PANEL
 		</div>
 	</article>
 	{% renderMarkdown %}
+
 	{% endrenderMarkdown %}
 {% endtabPanel %}
 
