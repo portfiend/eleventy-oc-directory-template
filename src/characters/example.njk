@@ -50,7 +50,7 @@ MAIN PANEL
 				</tbody>
 			</table>
 			<div class="card-biography">
-					{% renderTemplate "md,njk" %}
+					{% renderMarkdown %}
 						A basic summary of who this character is. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 						Morbi varius libero non sem dapibus, eget viverra nisl sagittis. 
 						
@@ -58,12 +58,12 @@ MAIN PANEL
 						interdum elementum, leo sem laoreet nibh, at sollicitudin diam ipsum eu risus. Aenean gravida eu 
 						nibh id tincidunt. Pellentesque lorem mauris, cursus sed ligula eget, cursus posuere risus. Phasellus
 						vel enim volutpat, sagittis augue at, condimentum ex.
-					{% endrenderTemplate %}
+					{% endrenderMarkdown %}
 			</div>
 		</div>
 	</article>
 
-	{% renderTemplate "md,njk" %}
+	{% renderMarkdown %}
 ## Biography
 	
 	Here is where you write your character info, in Markdown!
@@ -72,7 +72,7 @@ MAIN PANEL
 
 ## Personality
 
-	{% endrenderTemplate %}
+	{% endrenderMarkdown %}
 {% endtabPanel %}
 
 <!-- 
@@ -126,11 +126,11 @@ PERMISSIONS PANEL
 			{% keyValue "Up for trade", "No" %}
 		</tbody>
 	</table>
-	{% renderTemplate "md,njk" %}
+	{% renderMarkdown %}
 Elaborate on your character permissions. Are there certain themes/topics that are off-limits?
 How about themes/topics that you'd like to see them featured in more?
 
 ### Global preferences
 {% include "_globalCharacterPermissions.md" %}
-	{% endrenderTemplate %}
+	{% endrenderMarkdown %}
 {% endtabPanel %}

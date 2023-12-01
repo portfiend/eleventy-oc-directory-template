@@ -8,7 +8,7 @@ const contentWarning = require("./src/_data/contentWarning.json");
 const metadata = require("./src/_data/metadata.json");
 
 module.exports = function (eleventyConfig) {
-	configureMarkdown(eleventyConfig);
+	const markdownEngine = configureMarkdown(eleventyConfig);
 
 	eleventyConfig.addPlugin(EleventyRenderPlugin);
 	eleventyConfig.addPassthroughCopy("./src/assets/");
@@ -38,6 +38,8 @@ module.exports = function (eleventyConfig) {
 	})
 
 	// Shortcodes
+
+	eleventyConfig.addPairedShortcode("renderMarkdown", content => markdownEngine.render(content));
 
 	eleventyConfig.addPairedShortcode("gallery", (content) => {
 		return `
@@ -170,4 +172,6 @@ const configureMarkdown = (eleventyConfig) => {
 	markdownEngine.use(markdownDiv);
 
 	eleventyConfig.setLibrary("md", markdownEngine);
+	
+	return markdownEngine;
 }
