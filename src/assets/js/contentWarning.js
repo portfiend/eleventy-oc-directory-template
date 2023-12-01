@@ -44,18 +44,32 @@ const initWarningCheckboxes = (_warnings, dialog) => {
 			checkbox.checked = optedIn === "true";
 		}
 
-		checkbox.addEventListener("change", (e) => {
+		const cbxLabel = dialog.querySelector(`#cbx-${warning}-label`);
+		const labelContent = cbxLabel ? cbxLabel.textContent : "";
+
+		checkbox.addEventListener("setDisabled", (e) => {
+			checkbox.disabled = e.disable;
+			
+			if (checkbox.disabled) checkbox.checked = false;
+
+			const event = new Event("change");
+			checkbox.dispatchEvent(event);
+		})
+
+		checkbox.addEventListener("change", e => {
 			setOptIn(optInId, e.target.checked);
+
+			if (cbxLabel) {
+				const checkedLabel = e.target.disabled ? "HIDDEN" : (e.target.checked ? "SHOWN" : "BLURRED");
+				cbxLabel.textContent = `${checkedLabel}: ${labelContent}`;
+			}
 
 			const requireBoxes = dialog.querySelectorAll(`[data-require=${warning}]`);
 			for (let r = 0; r < requireBoxes.length; r++) {
 				const requireBox = requireBoxes[r];
-				requireBox.disabled = !e.target.checked;
-				if (requireBox.disabled) {
-					requireBox.checked = false;
-					const event = new Event("change");
-					requireBox.dispatchEvent(event);
-				}
+				const event = new Event("setDisabled");
+				event.disable = !e.target.checked;
+				requireBox.dispatchEvent(event);
 			}
 
 			const blurredContent = document.querySelectorAll(`.blur-${warning}`);

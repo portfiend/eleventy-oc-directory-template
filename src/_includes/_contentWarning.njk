@@ -14,8 +14,9 @@
 
 		{% if contentWarning.showSiteContentWarning %}
 			<p>
-			This website may contain the following sensitive content:
-		</p>
+				This site may contain the following content warnings. Sensitive content will be 
+				<b>blurred</b> by default. Checked boxes will instead be <b>visible</b> by default. 
+			</p>
 			<ul>
 				{% for warning, warningData in contentWarning.siteWarnings %}
 					<li>
@@ -26,7 +27,7 @@
 							{{'data-require='+ warningData.require if warningData.require}}
 							{{"checked" if warningData.defaultVisibility}}
 							{{"disabled" if warningData.require}}/>
-						<label for="cbx-{{warning}}">
+						<label id="cbx-{{warning}}-label" for="cbx-{{warning}}">
 							{{warningData.name}}
 							{{"(" + warningData.description + ")" if warningData.description}}
 						</label>

@@ -5,7 +5,7 @@
 	"siteWarnings": {
 		"flash": {
 			"name": "Photosensitive imagery",
-			"description": "flashing, strobing, bright or high-contrast imagery",
+			"description": "flashing / strobing / high-contrast",
 			"defaultVisibility": true
 		},
 		"gore": {
@@ -19,7 +19,7 @@
 		},
 		"sexual": {
 			"name": "Sexual content",
-			"description": "pornographic or sexually provocative material",
+			"description": "pornographic or sexually provocative",
 			"defaultVisibility": false,
 			"require": "adult"
 		}
