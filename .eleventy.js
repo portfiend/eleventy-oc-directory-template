@@ -19,8 +19,8 @@ module.exports = function (eleventyConfig) {
 		if (!id) return;
 		
 		collection.forEach(page => { 
-			if (!Array.isArray(page.data.settings)) return;
-			if (page.data.settings.includes(id)) {
+			if (!Array.isArray(page.data.linkedPages)) return;
+			if (page.data.linkedPages.includes(id)) {
 				links.push(page);
 			} 
 		});

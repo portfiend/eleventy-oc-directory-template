@@ -9,11 +9,11 @@ pageThemes: []
 name: Character Name
 title: Informational title
 pronouns: null
-settings: []
+linkedPages: []
 
 ---
 
-{% from "macros/_nav.njk" import tagNav, collectionNav %}
+{% from "macros/_nav.njk" import tagNav, linkNav, collectionNav with context %}
 
 {% set settingPages = [] %}
 {% for _setting in settings %}
@@ -27,20 +27,7 @@ settings: []
 	</main>
 
 	<footer>
-
-		<h2 aria-labelledfor="settings-list">Associated Settings</h2>
-		<ul id="settings-list">
-			{% for settingPage in settingPages %}
-				<li>
-					<a 
-					class="setting-link" 
-					href="{{settingPage.url}}"
-					data-id="{{settingPage.data.id}}">
-					Go to {{settingPage.data.name}}
-					</a>
-				</li>
-			{% endfor %}
-		</ul>
+		{{ linkNav() }}
 
 		{% set previous = collections.character | alphabetizePages | getPreviousCollectionItem %}
 		{% set next = collections.character | alphabetizePages | getNextCollectionItem %}

@@ -8,10 +8,11 @@ pageThemes: []
 
 name: Setting Name
 title: Informational title
+linkedPages: []
 
 ---
 
-{% from "macros/_nav.njk" import tagNav, collectionNav %}
+{% from "macros/_nav.njk" import tagNav, linkNav, collectionNav with context %}
 
 <article>
 	<main>
@@ -19,14 +20,7 @@ title: Informational title
 	</main>
 
 	<footer>
-		<h2 aria-labelledfor="what-links-here">What Links Here</h2>
-		<ul id="what-links-here">
-			{% for character in collections.all | whatLinksHere %}
-				<li>
-					<a href="{{character.url}}">{{character.data.pageTitle}}</a>
-				</li>
-			{% endfor %}
-		</ul>
+		{{ linkNav() }}
 
 		{% set previous = collections.setting | alphabetizePages | getPreviousCollectionItem %}
 		{% set next = collections.setting | alphabetizePages | getNextCollectionItem %}
