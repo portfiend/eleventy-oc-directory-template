@@ -19,6 +19,15 @@ title: Informational title
 	</main>
 
 	<footer>
+		<h2 aria-labelledfor="what-links-here">What Links Here</h2>
+		<ul id="what-links-here">
+			{% for character in collections.all | whatLinksHere %}
+				<li>
+					<a href="{{character.url}}">{{character.data.pageTitle}}</a>
+				</li>
+			{% endfor %}
+		</ul>
+
 		{% set previous = collections.setting | alphabetizePages | getPreviousCollectionItem %}
 		{% set next = collections.setting | alphabetizePages | getNextCollectionItem %}
 		{{ collectionNav("Settings", "/settings", previous, next) }}

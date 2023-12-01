@@ -13,7 +13,22 @@ module.exports = function (eleventyConfig) {
 
 	// Filters
 
-	eleventyConfig.addFilter("alphabetizePages", (pages) => {
+	eleventyConfig.addFilter("whatLinksHere", function (collection) {
+		const links = [];
+		const id = this.ctx.id;
+		if (!id) return;
+		
+		collection.forEach(page => { 
+			if (!Array.isArray(page.data.settings)) return;
+			if (page.data.settings.includes(id)) {
+				links.push(page);
+			} 
+		});
+
+		return links;
+	});
+
+	eleventyConfig.addFilter("alphabetizePages", pages => {
 		pages.sort((a, b) => {
 			a = (a.data.pageTitle || "").toLowerCase();
 			b = (b.data.pageTitle || "").toLowerCase();
@@ -21,7 +36,7 @@ module.exports = function (eleventyConfig) {
 		});
 		return pages;
 	})
-	
+
 	eleventyConfig.addFilter("namespaced", (collection, namespace) => {
 		return collection.filter(item => item.data.id && item.data.id.startsWith(namespace + ":"));
 	})
@@ -169,6 +184,6 @@ const configureMarkdown = (eleventyConfig) => {
 	markdownEngine.use(markdownDiv);
 
 	eleventyConfig.setLibrary("md", markdownEngine);
-	
+
 	return markdownEngine;
 }
