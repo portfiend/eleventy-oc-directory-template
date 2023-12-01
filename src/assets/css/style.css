@@ -78,6 +78,10 @@ a:visited {
 	grid-area: rightsidebar;
 }
 
+#right-sidebar ul {
+  margin-top: 5px;
+}
+
 #right-sidebar h2 {
   font-size: 18px;
   margin-bottom: 0;
