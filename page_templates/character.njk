@@ -12,8 +12,9 @@ pageThemes:
 name: Character Name
 subtitle: Informative title
 pronouns: any pronouns
-settings: 
--	setting:example
+linkedPages: 
+-	setting:exampleStory
+- setting:exampleLocation
 
 ---
 <h1>{{pageTitle}}</h1>
@@ -80,7 +81,7 @@ GALLERY PANEL
 -->
 {% tabPanel id="gallery", listId="character" %}
 	{% gallery %}
-		{% lightboxImg "thumbnails/character/example.png", "Example image", { 
+		{% lightboxImg "thumbnails/character/example.png", "Example image", {
 			artist: "Artist name here",
 			artist_website: "https://example.com",
 			license: "All rights reserved",
