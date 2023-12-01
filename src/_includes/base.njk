@@ -28,22 +28,22 @@
 			<a href="#content">Jump to main content</a>
 		</div>
 
-		{% include "_sidebar.njk" %}
+		{% include "imports/_sidebar.njk" %}
 
 		<main id="content">
 			{{content | safe}}
 		</main>
 
 		{% if enableRightSidebar %}
-			{% include "_rightSidebar.njk" %}
+			{% include "imports/_rightSidebar.njk" %}
 		{% endif %}
 
 		{% if options.enableContentWarnings %}
-			{% include "_contentWarning.njk" %}
+			{% include "imports/_contentWarning.njk" %}
 		{% endif %}
 		
 		{% if options.enableLightbox %}
-			{% include "_lightbox.njk" %}
+			{% include "imports/_lightbox.njk" %}
 		{% endif %}
 	</body>
 </html>
