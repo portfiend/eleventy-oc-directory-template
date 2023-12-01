@@ -24,7 +24,5 @@ linkedPages: []
 		{% set previous = collections.setting | alphabetizePages | getPreviousCollectionItem %}
 		{% set next = collections.setting | alphabetizePages | getNextCollectionItem %}
 		{{ collectionNav("Settings", "/settings", previous, next) }}
-		
-		{{ tagNav(tags) }}
 	</footer>
 </article>

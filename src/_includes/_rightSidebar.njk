@@ -1,5 +1,8 @@
-{% from "macros/_nav.njk" import linkNav with context %}
+{% from "macros/_nav.njk" import linkNav, tagNav with context %}
 
 <aside id="right-sidebar" class="sidebar">
-	{{ linkNav() }}
+	<nav>
+		{{ linkNav() }}
+		{{ tagNav() }}
+	</nav>
 </aside>

@@ -31,7 +31,5 @@ linkedPages: []
 		{% set previous = collections.character | alphabetizePages | getPreviousCollectionItem %}
 		{% set next = collections.character | alphabetizePages | getNextCollectionItem %}
 		{{ collectionNav("Characters", "/characters", previous, next) }}
-		
-		{{ tagNav(tags) }}
 	</footer>
 </article>

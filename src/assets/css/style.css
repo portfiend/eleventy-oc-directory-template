@@ -384,31 +384,16 @@ ul.gallery {
   max-height: calc(100vh - 180px);
 }
 
-.tag-navigation {
-  display: block;
-  padding: 10px 0;
-}
-
-.tag-navigation h2 {
-  display: inline;
-  margin: 0;
-  padding: 0;
-  margin-right: 10px;
-}
-
 .tag-navigation ul {
-  display: inline;
-  list-style: none;
-  margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 .tag-navigation li {
-  display: inline;
+  padding: 5px 0;
 }
 
 .tag-button {
-  display: inline-block;
   text-decoration: none;
   background-color: var(--color-interactive-bg);
   color: white !important;
