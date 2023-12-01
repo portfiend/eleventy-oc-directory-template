@@ -17,6 +17,7 @@
 	--cw-visible-color: rgba(0, 0, 0, 0.1);
   
   --container-border-radius: 10px;
+  --thumbnail-size: 160px;
 }
 
 body {
@@ -100,14 +101,14 @@ hr {
 
 .thumb-item-box {
 	display: block;
-	width: 160px;
+	width: var(--thumbnail-size);
 }
 
 .thumbnail {
 	display: block;
 	border: var(--border-thumbnail);
-	width: 160px;
-	height: 160px;
+	width: var(--thumbnail-size);
+	height: var(--thumbnail-size);
 }
 
 [role=tabpanel] {
