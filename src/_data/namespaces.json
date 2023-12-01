@@ -1,16 +1,13 @@
 {
 	"character": {
-		"plural": "characters",
 		"title": "Characters",
 		"url": "/characters"
 	},
 	"location": {
-		"plural": "locations",
 		"title": "Locations",
 		"url": "/locations"
 	},
 	"story": {
-		"plural": "stories",
 		"title": "Stories",
 		"url": "/stories"
 	}

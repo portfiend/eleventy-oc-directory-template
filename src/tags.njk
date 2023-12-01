@@ -13,7 +13,7 @@ pageTitle: Tags
 			<li>
 				<a href="/tagged/{{tag}}">{{tag}}</a> - 
 				{% for namespace, data in namespaces %}
-					{{collections[tag] | namespaced(namespace) | length}} {{data.plural}}
+					{{collections[tag] | namespaced(namespace) | length}} {{data.title | lower}}
 				{% endfor %}
 			</li>
 		{% endif %}
