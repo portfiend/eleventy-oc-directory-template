@@ -5,6 +5,7 @@ tags: [setting]
 pageTitle: Setting Name
 thumbnailUrl: thumbnails/setting/example.png
 pageThemes: []
+enableRightSidebar: true
 
 name: Setting Name
 title: Informational title
@@ -12,7 +13,7 @@ linkedPages: []
 
 ---
 
-{% from "macros/_nav.njk" import tagNav, linkNav, collectionNav with context %}
+{% from "macros/_nav.njk" import tagNav, collectionNav with context %}
 
 <article>
 	<main>
@@ -20,8 +21,6 @@ linkedPages: []
 	</main>
 
 	<footer>
-		{{ linkNav() }}
-
 		{% set previous = collections.setting | alphabetizePages | getPreviousCollectionItem %}
 		{% set next = collections.setting | alphabetizePages | getNextCollectionItem %}
 		{{ collectionNav("Settings", "/settings", previous, next) }}

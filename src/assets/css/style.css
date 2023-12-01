@@ -25,8 +25,8 @@ body {
 	background: var(--bg-body);
   color: var(--color-text);
 	display: grid;
-	grid-template-areas: "sidebar main";
-	grid-auto-columns: 180px 800px;
+	grid-template-areas: "sidebar main rightsidebar";
+	grid-auto-columns: 180px 800px 180px;
 	margin: 40px 80px;
 	padding: 0;
 	grid-gap: 20px;
@@ -70,16 +70,28 @@ a:visited {
   max-width: 100%;
 }
 
-#sidebar {
-	background: var(--bg-sidebar);
+#left-sidebar {
 	grid-area: sidebar;
+}
+
+#right-sidebar {
+	grid-area: rightsidebar;
+}
+
+#right-sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+.sidebar {
+	background: var(--bg-sidebar);
 	box-sizing: border-box;
-	padding: 10px 20px;
+	padding: 0px 15px 10px;
 	border: var(--border-container);
   border-radius: var(--container-border-radius);
 }
 
-#sidebar nav > ul {
+.sidebar nav ul {
 	list-style: none;
 	padding: 0;
 }

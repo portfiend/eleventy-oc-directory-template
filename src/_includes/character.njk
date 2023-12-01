@@ -5,6 +5,7 @@ tags: [character]
 pageTitle: Character Name
 thumbnailUrl: thumbnails/character/example.png
 pageThemes: []
+enableRightSidebar: true
 
 name: Character Name
 title: Informational title
@@ -13,7 +14,7 @@ linkedPages: []
 
 ---
 
-{% from "macros/_nav.njk" import tagNav, linkNav, collectionNav with context %}
+{% from "macros/_nav.njk" import tagNav, collectionNav with context %}
 
 {% set settingPages = [] %}
 {% for _setting in settings %}
@@ -27,8 +28,6 @@ linkedPages: []
 	</main>
 
 	<footer>
-		{{ linkNav() }}
-
 		{% set previous = collections.character | alphabetizePages | getPreviousCollectionItem %}
 		{% set next = collections.character | alphabetizePages | getNextCollectionItem %}
 		{{ collectionNav("Characters", "/characters", previous, next) }}

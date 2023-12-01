@@ -34,6 +34,10 @@
 			{{content | safe}}
 		</main>
 
+		{% if enableRightSidebar %}
+			{% include "_rightSidebar.njk" %}
+		{% endif %}
+
 		{% if options.enableContentWarnings %}
 			{% include "_contentWarning.njk" %}
 		{% endif %}
