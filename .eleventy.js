@@ -2,15 +2,12 @@ const markdownIt = require("markdown-it");
 const { attrs } = require("@mdit/plugin-attrs");
 const markdownDiv = require('markdown-it-div');
 
-const { EleventyRenderPlugin } = require("@11ty/eleventy");
-
 const contentWarning = require("./src/_data/contentWarning.json");
 const metadata = require("./src/_data/metadata.json");
 
 module.exports = function (eleventyConfig) {
 	const markdownEngine = configureMarkdown(eleventyConfig);
 
-	eleventyConfig.addPlugin(EleventyRenderPlugin);
 	eleventyConfig.addPassthroughCopy("./src/assets/");
 	eleventyConfig.addWatchTarget("./src/assets/");
 
