@@ -39,7 +39,7 @@
 
 .card-reference figure a, .card-reference figure img {
   display: block;
-  position: absolute;
+  object-fit: cover;
   width: auto;
   height: 100%;
 }
@@ -79,5 +79,60 @@
 }
 
 .card-biography {
+  overflow-y: auto;
+}
+
+.locard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.locard-banner figure {
+  margin: 0;
+  border-radius: var(--container-border-radius);
+  overflow: hidden;
+  width: 100%;
+  height: 240px;
+}
+
+.locard-banner figure a {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.locard-banner figure img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.locard-details {
+  background-color: rgba(0,0,0,0.15); 
+  border-radius: var(--container-border-radius);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.locard-table {
+  width: 100%;
+}
+
+.locard-table tbody {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.locard-table tr {
+  border: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.locard-biography {
+  height: 120px;
   overflow-y: auto;
 }

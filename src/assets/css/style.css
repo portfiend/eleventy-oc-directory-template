@@ -66,6 +66,10 @@ a:visited {
   border-radius: var(--container-border-radius);
 }
 
+#content figure, #content img {
+  max-width: 100%;
+}
+
 #sidebar {
 	background: var(--bg-sidebar);
 	grid-area: sidebar;
