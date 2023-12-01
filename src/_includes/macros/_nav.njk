@@ -43,7 +43,7 @@
 					{% set _page = collections.all | getPageById(_id) %}
 					<li>
 						<a class="setting-link" href="{{_page.url}}" data-id="{{_page.data.id}}">
-							Go to {{_page.data.name}}
+							{{_page.data.name}}
 						</a>
 					</li>
 				{% endfor %}
