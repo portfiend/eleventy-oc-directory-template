@@ -23,7 +23,7 @@ These features will not be added to the template project, but if you're learning
 
 - Generate an [RSS feed](https://www.11ty.dev/docs/plugins/rss/) of your newest pages.
   - The RSS specification can be found [here](https://www.rssboard.org/rss-specification).
-- Add new page types to fit your needs - Species, Organizations, Animals, Languages, Lore, etc.
+- Add new namespaces to fit your needs - Species, Organizations, Animals, Languages, Lore, etc.
   - Namespaces are defined in `src/_data/namespaces.json`.
     - Adding a new namespace to this file automatically adds it to sidebars, tag pages, and page footers.
   - Create a directory to hold your new namespace's files.
