@@ -16,12 +16,6 @@ linkedPages: []
 
 {% from "macros/_nav.njk" import tagNav, collectionNav with context %}
 
-{% set settingPages = [] %}
-{% for _setting in settings %}
-	{% set data = collections.all | getPageById(_setting) %}
-	{{ data and settingPages.push(data) and "" }}
-{% endfor %}
-
 <article>
 	<main>
 		{{ content | safe }}

@@ -7,7 +7,6 @@ pageTitle: Characters
 
 <ul class="thumb-list">
 {%- for page in collections.character | alphabetizePages -%}
-	{% set setting = collections.all | getPageById(page.data.setting) %}
   <li class="thumb-list-item">
 		{% thumbnail page %}
 	</li>
