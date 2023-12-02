@@ -165,6 +165,7 @@ footer {
 
 #content-warning::backdrop {
   background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
 }
 
 #content-warning label {
