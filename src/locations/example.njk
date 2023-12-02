@@ -114,8 +114,7 @@ This tab is useful for describing the history of a location or its involvement i
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 
-{% set story = collections.all | getPageById("story:example") %}
-## In [_{{story.data.name}}_]({{story.url}})
+## In _{% linkById "story:example" %}_
 
 Attaching this location's history to a specific story, character, etc. is a good way to flesh it out.
 	{% endrenderMarkdown %}

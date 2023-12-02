@@ -51,6 +51,19 @@ module.exports = function (eleventyConfig) {
 
 	// Shortcodes
 
+	eleventyConfig.addShortcode("linkById", function (id, selector, fallback) {
+		const ctx = this.ctx;
+		if (!ctx) return;
+		const page = ctx.collections["all"].find(item => item.data.id === id);
+		const pageName = page && page.data && (page.data.name || page.data.pageTitle);
+		let url = page && page.url;
+		if (url && url.endsWith("/")) {
+			url = url.substring(0, -1);
+		}
+
+		return `<a href="${page && url || fallback || "#"}${selector || ""}">${pageName || fallback || "URL not found"}</a>`;
+	})
+
 	eleventyConfig.addPairedShortcode("renderMarkdown", content => markdownEngine.render(content));
 
 	eleventyConfig.addPairedShortcode("gallery", (content) => {
