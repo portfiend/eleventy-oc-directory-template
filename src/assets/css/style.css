@@ -258,6 +258,7 @@ p>.blur-content {
 }
 
 .field-table {
+  width: 100%;
   max-width: 400px;
   margin: 10px auto;
   box-sizing: border-box;
