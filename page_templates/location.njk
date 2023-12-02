@@ -1,0 +1,169 @@
+---
+
+tags:
+- example
+
+# Used as a short ID for various page data-retrieving functions.
+id: "location:example"
+pageTitle: Location Name
+thumbnailUrl: thumbnails/setting/example.png
+linkedPages: []
+pageThemes:
+- snippet/card.css
+
+name: Location Name
+subtitle: Informative title
+
+---
+
+<h1>{{pageTitle}}</h1>
+
+{% tabList id="setting", title="Character info" %}
+	{% tabButton id="main", label="Basic Information", selected=true %}
+	{% tabButton id="timeline", label="Timeline" %}
+	{% tabButton id="gallery", label="Gallery" %}
+	{% tabButton id="permissions", label="Permissions" %}
+{% endtabList %}
+
+<!-- 
+MAIN PANEL 
+-->
+{% tabPanel id="main", listId="setting" %}
+	<article class="card locard locard-{{name | slugify}}">
+		<header class="locard-header card-header">
+			<h2>{{name}}</h2>
+			<div class="subtitle">{{subtitle}}</div>
+		</header>
+		<div class="locard-banner">
+			{% lightboxImg "banner.jpg", "Example image", {
+				artist: "Artist name here",
+				artist_website: "https://example.com",
+				license: "All rights reserved",
+				creation_date: "2023-11-20"
+			} %}
+		</div>
+		<div class="locard-details">
+			<table class="locard-table">
+				<tbody>
+					{% keyValue "Population", "Example A" %}
+					{% keyValue "Climate", "Example B" %}
+					{% keyValue "Terrain", "Example C" %}
+					{% keyValue "Government", "Example D" %}
+				</tbody>
+			</table>
+			<div class="locard-biography">
+				{% renderMarkdown %}
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi varius libero non sem dapibus, eget
+					viverra nisl sagittis. 
+
+					Ut interdum mi non sagittis euismod. Suspendisse id venenatis massa. Aliquam ornare, nibh sit amet
+					interdum elementum, leo sem laoreet nibh, at sollicitudin diam ipsum eu risus. Aenean gravida eu 
+					nibh id tincidunt. Pellentesque lorem mauris, cursus sed ligula eget, cursus posuere risus. Phasellus
+					vel enim volutpat, sagittis augue at, condimentum ex.
+				{% endrenderMarkdown %}
+			</div>
+		</div>
+	</article>
+
+	<article id="sublocation-name" class="subloc-card card">
+		<header class="subloc-header card-header">
+			<h2>Sub-Location</h2>
+		</header>
+		<div class="subloc-left subloc-imgcontainer">
+			{% set refImgDesc = "Reference image of Sublocation" %}
+			{% lightboxImg "portrait.jpg", refImgDesc %}
+		</div>
+		<div class="subloc-middle subloc-right ">
+			<table class="subloc-table">
+				<tbody>
+					{% keyValue "Type", "Example" %}
+					{% keyValue "Address", "123 Main Street" %}
+				</tbody>
+			</table>
+			<div class="subloc-biography">
+				{% renderMarkdown %}
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi varius libero non sem dapibus, eget
+					viverra nisl sagittis. 
+
+					Ut interdum mi non sagittis euismod. Suspendisse id venenatis massa. Aliquam ornare, nibh sit amet
+					interdum elementum, leo sem laoreet nibh, at sollicitudin diam ipsum eu risus. Aenean gravida eu 
+					nibh id tincidunt. Pellentesque lorem mauris, cursus sed ligula eget, cursus posuere risus. Phasellus
+					vel enim volutpat, sagittis augue at, condimentum ex.
+				{% endrenderMarkdown %}
+			</div>
+		</div>
+		<div class="subloc-right subloc-imgcontainer">
+			{% set refImgDesc = "Reference image of Sublocation" %}
+			{% lightboxImg "banner.jpg", refImgDesc %}
+		</div>
+	</article>
+
+
+{% endtabPanel %}
+
+<!-- 
+HISTORY PANEL
+-->
+{% tabPanel id="timeline", listId="setting" %}
+	{% renderMarkdown %}
+## Event #1
+
+This tab is useful for describing the history of a location or its involvement in certain projects.
+
+## Event #2 
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+
+## In _{% linkById "story:example" %}_
+
+Attaching this location's history to a specific story, character, etc. is a good way to flesh it out.
+	{% endrenderMarkdown %}
+{% endtabPanel %}
+
+<!-- 
+GALLERY PANEL 
+-->
+{% tabPanel id="gallery", listId="setting" %}
+	{% gallery %}
+		{% lightboxImg "thumbnails/character/example.png", "Example image", {
+			artist: "Artist name here",
+			artist_website: "https://example.com",
+			license: "All rights reserved",
+			creation_date: "2023-11-20"
+		} %}
+		{% lightboxImg "thumbnails/character/example.png", "Example image", {
+			artist: "Artist name here",
+			artist_website: "https://example.com",
+			license: "All rights reserved",
+			creation_date: "2023-11-20"
+		} %}
+		{% lightboxImg "thumbnails/character/example.png", "Example image", {
+			artist: "Artist name here",
+			artist_website: "https://example.com",
+			license: "All rights reserved",
+			creation_date: "2023-11-20"
+		} %}
+	{% endgallery %}
+{% endtabPanel %}
+
+<!-- 
+PERMISSIONS PANEL 
+-->
+{% tabPanel id="permissions", listId="setting" %}
+	<table class="field-table">
+		<caption>Fan work preferences</caption>
+		<tbody>
+			{% keyValue "Fanworks", "Allowed" %}
+			{% keyValue "Commissions", "Ask first" %}
+		</tbody>
+	</table>
+	{% renderMarkdown %}
+Elaborate on your permissions. Are there certain themes/topics that are off-limits?
+How about themes/topics that you'd like to see them featured in more?
+
+### Global preferences
+{% include "imports/_globalCharacterPermissions.md" %}
+	{% endrenderMarkdown %}
+{% endtabPanel %}
+
+<p></p>
