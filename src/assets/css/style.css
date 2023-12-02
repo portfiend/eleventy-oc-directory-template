@@ -100,6 +100,10 @@ a:visited {
 	padding: 0;
 }
 
+.sidebar nav li {
+  line-height: 1.5;
+}
+
 hr { 
 	border: none;
 	border-bottom: 1px solid var(--color-border);
