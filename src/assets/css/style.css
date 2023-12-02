@@ -459,15 +459,6 @@ body {
     grid-auto-columns: 180px calc(800 / 1360 * 100%) 180px;
     gap: max(var(--gap-size), calc(var(--gap-min) * 1px));
   }
-
-  /* body:after {
-    background: red;
-    display: block;
-    height: 200px;
-    position: absolute;
-    content: " ";
-    width: var(--gap-size);
-  } */
 }
 
 @media screen and (max-width: 908px) {
