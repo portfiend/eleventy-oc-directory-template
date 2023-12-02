@@ -9,6 +9,7 @@ pageTitle: Sitemap
 	{% for page in collections.all | alphabetizePages %}
 		<li>
 			<a href="{{page.url}}">{{page.data.pageTitle}}</a>
+      {{ page.data.type and ("(" + page.data.type + ")") or "" }}
 		</li>
 	{% endfor %}
 </ol>
