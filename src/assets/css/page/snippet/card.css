@@ -155,15 +155,17 @@
 .subloc-imgcontainer figure {
   display: block;
   margin: 0;
-  width: 100%;
+  height: 100%;
 }
 
 .subloc-imgcontainer a {
+  height: 100%;
   width: 100%;
   object-fit: cover;
 }
 
 .subloc-imgcontainer img {
+  height: 100%;
   width: 100%;
   object-fit: cover;
 }
