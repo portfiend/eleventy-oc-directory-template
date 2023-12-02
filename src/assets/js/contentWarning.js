@@ -90,8 +90,14 @@ const initWarningCheckboxes = (_warnings, dialog) => {
 				blurDiv.setAttribute("data-blurred", "");
 			}
 		});
+	}
 
+	for (let w = 0; w < warnings.length; w++) {
+		const warning = warnings[w];
 		const initEvent = new Event("change");
+		const checkbox = dialog.querySelector("#cbx-" + warning);
+		if (!checkbox) continue;
+
 		checkbox.dispatchEvent(initEvent);
 	}
 }
