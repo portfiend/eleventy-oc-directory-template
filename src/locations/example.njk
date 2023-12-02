@@ -53,20 +53,52 @@ MAIN PANEL
 			</table>
 			<div class="locard-biography">
 				{% renderMarkdown %}
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi varius libero non sem dapibus, eget
-		viverra nisl sagittis. 
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi varius libero non sem dapibus, eget
+					viverra nisl sagittis. 
 
-		Ut interdum mi non sagittis euismod. Suspendisse id venenatis massa. Aliquam ornare, nibh sit amet
-		interdum elementum, leo sem laoreet nibh, at sollicitudin diam ipsum eu risus. Aenean gravida eu 
-		nibh id tincidunt. Pellentesque lorem mauris, cursus sed ligula eget, cursus posuere risus. Phasellus
-		vel enim volutpat, sagittis augue at, condimentum ex.
+					Ut interdum mi non sagittis euismod. Suspendisse id venenatis massa. Aliquam ornare, nibh sit amet
+					interdum elementum, leo sem laoreet nibh, at sollicitudin diam ipsum eu risus. Aenean gravida eu 
+					nibh id tincidunt. Pellentesque lorem mauris, cursus sed ligula eget, cursus posuere risus. Phasellus
+					vel enim volutpat, sagittis augue at, condimentum ex.
 				{% endrenderMarkdown %}
 			</div>
 		</div>
 	</article>
-	{% renderMarkdown %}
 
-	{% endrenderMarkdown %}
+	<article id="sublocation-name" class="subloc-card">
+		<header class="subloc-header card-header">
+			<h2>Sub-Location</h2>
+		</header>
+		<div class="subloc-left subloc-imgcontainer">
+			{% set refImgDesc = "Reference image of Sublocation" %}
+			{% lightboxImg "portrait.jpg", refImgDesc %}
+		</div>
+		<div class="subloc-middle subloc-right ">
+			<table class="subloc-table">
+				<tbody>
+					{% keyValue "Type", "Example" %}
+					{% keyValue "Address", "123 Main Street" %}
+				</tbody>
+			</table>
+			<div class="subloc-biography">
+				{% renderMarkdown %}
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi varius libero non sem dapibus, eget
+					viverra nisl sagittis. 
+
+					Ut interdum mi non sagittis euismod. Suspendisse id venenatis massa. Aliquam ornare, nibh sit amet
+					interdum elementum, leo sem laoreet nibh, at sollicitudin diam ipsum eu risus. Aenean gravida eu 
+					nibh id tincidunt. Pellentesque lorem mauris, cursus sed ligula eget, cursus posuere risus. Phasellus
+					vel enim volutpat, sagittis augue at, condimentum ex.
+				{% endrenderMarkdown %}
+			</div>
+		</div>
+		<div class="subloc-right subloc-imgcontainer">
+			{% set refImgDesc = "Reference image of Sublocation" %}
+			{% lightboxImg "portrait.jpg", refImgDesc %}
+		</div>
+	</article>
+
+
 {% endtabPanel %}
 
 <!-- 

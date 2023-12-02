@@ -136,3 +136,59 @@
   height: 120px;
   overflow-y: auto;
 }
+
+.subloc-card {
+  display: grid;
+  grid-template: 
+    "header header header"
+    "left middle right";
+  grid-template-columns: 2fr 3fr 2fr;
+  grid-template-rows: auto 240px;
+  gap: 10px;
+}
+
+.subloc-imgcontainer {
+  overflow: hidden;
+  border-radius: var(--container-border-radius);
+}
+
+.subloc-imgcontainer figure {
+  display: block;
+  margin: 0;
+  width: 100%;
+}
+
+.subloc-imgcontainer a {
+  width: 100%;
+  object-fit: cover;
+}
+
+.subloc-imgcontainer img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.subloc-middle {
+  background-color: rgba(0,0,0,0.1);
+  border-radius: var(--container-border-radius);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subloc-table {
+  width: 100%;
+}
+
+.subloc-table tr th {
+  padding-left: 0;
+}
+
+.subloc-table tr td {
+  padding-right: 0;
+}
+
+.subloc-biography {
+  overflow-y: auto;
+}
