@@ -11,8 +11,10 @@
   --bg-body: var(--color-primary);
   --bg-main: var(--color-secondary);
   --bg-sidebar: var(--bg-main);
-  --border-container: 4px solid var(--color-border);
-  --border-thumbnail: 2px solid var(--color-border);
+  --border-width: 4px;
+  --border-width-thin: 2px;
+  --border-container: var(--border-width) solid var(--color-border);
+  --border-thumbnail: var(--border-width-thin) solid var(--color-border);
   --cw-shadow-color: rgba(0, 0, 0, 0.65);
   --cw-visible-color: rgba(0, 0, 0, 0.1);
 
@@ -84,7 +86,7 @@ a:visited {
 }
 
 #right-sidebar h2 {
-  font-size: 18px;
+  font-size: 1.2em;
   margin-bottom: 0;
 }
 
@@ -144,8 +146,12 @@ footer {
   height: var(--thumbnail-size);
 }
 
+button {
+  font-size: 1em;
+}
+
 [role=tabpanel] {
-  border: 1px solid var(--color-border);
+  border: var(--border-thumbnail);
   padding: 10px 30px;
   margin: 0 -20px;
   background: rgba(0, 0, 0, 0.025);
@@ -155,7 +161,7 @@ footer {
 [role=tab] {
   background: var(--color-secondary);
   color: var(--color-text);
-  border: 1px solid var(--color-border);
+  border: var(--border-thumbnail);
   border-bottom-width: 0;
   padding: 5px;
   cursor: pointer;
@@ -360,7 +366,6 @@ ul.gallery {
 #lb-caption {
   text-align: right;
   font-size: 1.5em;
-  ;
   width: 50%;
 }
 
@@ -407,8 +412,7 @@ ul.gallery {
 }
 
 #lb-img {
-  max-width: 1200px;
-  width: 100%;
+  max-width: min(1200px, 100%);
   max-height: calc(100vh - 180px);
 }
 
@@ -611,5 +615,61 @@ body {
   ul.gallery {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (min-width: 2200px) {
+  :root {
+    --border-width: 6px;
+    --border-width-thin: 3px;
+    --container-border-radius: 20px;
+  }
+
+  body {
+    font-size: 1.75em;
+    grid-auto-columns: 280px 1200px 280px;
+  }
+
+  hr {
+    border-width: var(--border-width-thin);
+  }
+
+  input[type=checkbox] {
+    transform: scale(2);
+  }
+
+  .gallery .lightbox-image {
+    width: 256px;
+    height: 256px;
+  }
+
+  #content-warning {
+    max-width: 1200px;
+  }
+}
+
+@media screen and (min-width: 3200px) {
+  :root {
+    --border-width: 8px;
+    --border-width-thin: 4px;
+    --container-border-radius: 30px;
+  }
+
+  body {
+    font-size: 2.2em;
+    grid-auto-columns: 360px 1400px 360px;
+  }
+
+  input[type=checkbox] {
+    transform: scale(2.5);
+  }
+
+  .gallery .lightbox-image {
+    width: 400px;
+    height: 400px;
+  }
+
+  #content-warning {
+    max-width: 1600px;
   }
 }
