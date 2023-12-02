@@ -8,7 +8,7 @@
 				<a href="/about">About Us</a>
 			</li>
 			<hr>
-			{% for _,namespace in namespaces %}
+			{% for _, namespace in namespaces %}
 				<li>
 					<a href="{{namespace.url}}">{{namespace.title}}</a>
 				</li>
@@ -20,6 +20,11 @@
 			<li>
 				<a href="/sitemap">Sitemap</a>
 			</li>
+			{% if options.enableContentWarnings %}
+				<li>
+					<a href="#" id="cw-dialogue">Content Options</a>
+				</li>
+			{% endif %}
 			<li>
 				<a href="https://github.com/portfiend/eleventy-oc-directory-template">Get The Template!</a>
 			</li>

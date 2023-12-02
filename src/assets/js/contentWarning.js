@@ -17,6 +17,14 @@ const initializeContentWarning = (_warnings) => {
 	})
 
 	initWarningCheckboxes(_warnings, dialog);
+
+	const openDialogueLink = document.querySelector('#cw-dialogue');
+	if (openDialogueLink) {
+		openDialogueLink.addEventListener("click", e => {
+			e.preventDefault();
+			dialog.showModal();
+		})
+	}
 }
 
 const setOptIn = (optInId, value) => {
