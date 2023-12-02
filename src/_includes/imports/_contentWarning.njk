@@ -52,11 +52,13 @@
 		{{ warnings.unshift("adult") and "" }}
 	{% endif %}
 	<script>
-		const dialog = document.querySelector("dialog#content-warning");
-		const alreadyDone = localStorage.getItem("cw-confirm");
-		initializeContentWarning('{{warnings | dump | safe }}');
-		if (alreadyDone !== "true") {
-			dialog.showModal();
+		{ 
+			const dialog = document.querySelector("dialog#content-warning");
+			const alreadyDone = localStorage.getItem("cw-confirm");
+			initializeContentWarning('{{warnings | dump | safe }}');
+			if (alreadyDone !== "true") {
+				dialog.showModal();
+			}
 		}
 	</script>
 
@@ -75,4 +77,43 @@
 			} 
 		{% endfor %}
 	</style>
+{% endif %}
+
+{% if contentWarningForceEjects %}
+	{% if contentWarningForceEjects is string %}
+		<script>
+			const forceRedirect = () => {
+				const cw = localStorage.getItem("optIn-{{contentWarningForceEjects}}");
+				if (!cw || cw === "false") {
+					window.location.href = "../"
+				}
+			}
+			
+			document.body.addEventListener("updateContentSettings", forceRedirect);
+			
+			{ 
+				const alreadyDone = localStorage.getItem("cw-confirm");
+				if (alreadyDone) forceRedirect();
+			}
+		</script>
+	{% elif contentWarningForceEjects is iterable %}
+		<script>
+			const cws = ["{{contentWarningForceEjects | join('", "') | safe}}"];
+			const forceRedirect = () => {
+				for (const w in cws) {
+					const warning = cws[w];
+					const cw = localStorage.getItem("optIn-" + warning);
+					if (!cw || cw === "false") {
+						window.location.href = "../"
+					}
+				}
+			}
+
+			document.body.addEventListener("updateContentSettings", forceRedirect);
+			{ 
+				const alreadyDone = localStorage.getItem("cw-confirm");
+				if (alreadyDone) forceRedirect();
+			}
+		</script>
+	{% endif %}
 {% endif %}

@@ -14,6 +14,9 @@ const initializeContentWarning = (_warnings) => {
 
 	dialog.addEventListener("close", () => {
 		localStorage.setItem("cw-confirm", true);
+
+		const event = new Event("updateContentSettings");
+		document.body.dispatchEvent(event);
 	})
 
 	initWarningCheckboxes(_warnings, dialog);
