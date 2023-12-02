@@ -36,6 +36,7 @@
 
 		{% if enableRightSidebar %}
 			{% include "imports/_rightSidebar.njk" %}
+			<script>document.body.classList.add("include-right-sidebar")</script>
 		{% endif %}
 
 		{% if options.enableContentWarnings %}

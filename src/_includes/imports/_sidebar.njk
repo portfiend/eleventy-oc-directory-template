@@ -7,13 +7,17 @@
 			<li>
 				<a href="/about">About Us</a>
 			</li>
-			<hr>
+		</ul>
+		<hr>
+		<ul>
 			{% for _, namespace in namespaces %}
 				<li>
 					<a href="{{namespace.url}}">{{namespace.title}}</a>
 				</li>
 			{% endfor %}
-			<hr>
+		</ul>
+		<hr>
+		<ul>
 			<li>
 				<a href="/tags">Tags</a>
 			</li>

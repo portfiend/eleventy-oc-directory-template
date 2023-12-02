@@ -2,7 +2,7 @@
   display: grid;
   width: 100%;
   grid-template-areas: "header header" "reference details";
-  grid-template-columns: 240px auto;
+  grid-template-columns: auto auto;
   grid-template-rows: auto 320px;
   margin: 0 -30px;
   padding: 10px 30px;
@@ -25,6 +25,7 @@
   position: relative;
   overflow: hidden;
   border-radius: var(--container-border-radius);
+  width: 240px;
 }
 
 .card-reference figure {
