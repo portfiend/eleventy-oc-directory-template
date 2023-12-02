@@ -45,9 +45,7 @@
 				{% for _id in linkedPages %}
 					{% set _page = collections.all | getPageById(_id) %}
 					<li>
-						<a class="setting-link" href="{{_page.url}}" data-id="{{_page.data.id}}">
-							{{_page.data.name}}
-						</a>
+						<a class="setting-link" href="{{_page.url}}" data-id="{{_page.data.id}}">{{_page.data.name}}</a>
 					</li>
 				{% endfor %}
 			</ul>

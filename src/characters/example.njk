@@ -30,7 +30,7 @@ pronouns: any pronouns
 MAIN PANEL 
 -->
 {% tabPanel id="main", listId="character" %}
-	<article class="card card-{{name | slugify}}">
+	<article class="card char-card card-{{name | slugify}}">
 		<header class="card-header">
 			<h2>{{name}}</h2>
 		</header>
@@ -82,13 +82,13 @@ GALLERY PANEL
 -->
 {% tabPanel id="gallery", listId="character" %}
 	{% gallery %}
-		{% lightboxImg "thumbnails/character/example.png", "Example image", {
+		{% lightboxImg "banner.jpg", "Example image", {
 			artist: "Artist name here",
 			artist_website: "https://example.com",
 			license: "All rights reserved",
 			creation_date: "2023-11-20"
 		} %}
-		{% lightboxImg "thumbnails/character/example.png", "Example image", {
+		{% lightboxImg "portrait.jpg", "Example image", {
 			artist: "Artist name here",
 			artist_website: "https://example.com",
 			license: "All rights reserved",

@@ -251,7 +251,7 @@ p > .blur-content {
 }
 
 .field-table {
-  width: 400px;
+  max-width: 400px;
   margin: 10px auto;
   box-sizing: border-box;
   border-collapse: collapse;
@@ -297,9 +297,16 @@ ul.gallery {
   height: 128px;
   display: flex;
   justify-content: center;
+  align-items: center;
   border: 1px solid #aaa;
   border-radius: var(--container-border-radius);
   overflow: hidden;
+}
+
+.gallery .lightbox-image a, .gallery .lightbox-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .lightbox-image {
@@ -324,9 +331,10 @@ ul.gallery {
   flex-direction: column;
   top: 0;
   left: 0;
-  width: 100vw;
+  min-width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.85);
+	overflow-x: auto;
 }
 
 #lb-overlay[hidden] {
@@ -335,13 +343,16 @@ ul.gallery {
 
 #lb-metadata {
   background: var(--color-secondary);
-  width: 100vw;
+  width: 100%;
   height: 100px;
   box-sizing: border-box;
   padding: 10px 10vw;
   display: flex;
   gap: 20px;
   align-items: flex-start;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
 
 #lb-caption { 
@@ -381,7 +392,7 @@ ul.gallery {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  width: 100vw;
+  min-width: 100vw;
   height: calc(100vh - 100px);
   padding: 40px;
   box-sizing: border-box;
@@ -394,6 +405,7 @@ ul.gallery {
 
 #lb-img {
   max-width: 1200px;
+  width: 100%;
   max-height: calc(100vh - 180px);
 }
 
@@ -469,6 +481,10 @@ body {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
+  
+  body.include-right-sidebar .sidebar h2 {
+    text-align: center;
+  }
 
   body.include-right-sidebar .sidebar {
     display: flex;
@@ -490,21 +506,6 @@ body {
     text-align: center;
     content: "•";
     margin-right: calc(1em / 4);
-  }
-
-  body.include-right-sidebar .field-row {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  body.include-right-sidebar .field-row > * {
-    text-align: center;
-    padding: 0.125em 0;
-  }
-
-  body.include-right-sidebar .field-row > td {
-    padding-bottom: 10px;
   }
 }
 
@@ -542,6 +543,10 @@ body {
     border-top-right-radius: 0;
   }
   
+  body:not(.include-right-sidebar) .sidebar h2 {
+    text-align: center;
+  }
+
   body:not(.include-right-sidebar) .sidebar ul {
     margin: 0.25em 0;
     display: flex;
@@ -558,18 +563,46 @@ body {
     margin-right: calc(1em / 4);
   }
 
-  body:not(.include-right-sidebar) .field-row {
+}
+
+/* regardless of sidebar */
+
+@media screen and (max-width: 1200px) {
+  #lb-metadata, #lb-metalist {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  ul.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);;
+  }
+
+  .gallery .lightbox-image {
+    width: auto;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+
+  #lb-metalist tr {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
+}
 
-  body:not(.include-right-sidebar) .field-row > * {
-    text-align: center;
-    padding: 0;
+@media screen and (max-width: 440px) {
+  ul.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);;
   }
+}
 
-  body:not(.include-right-sidebar) .field-row > th {
-    padding-bottom: 10px;
+@media screen and (max-width: 334px) {
+  ul.gallery {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
