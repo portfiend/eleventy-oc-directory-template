@@ -265,45 +265,19 @@
 /* two column */
 
 @media screen and (max-width: 1360px) {
-  body.include-right-sidebar .story-table tr {
-    display: flex;
-    flex-direction: column;
-  }
-
-  body.include-right-sidebar .story-table th,
-  body.include-right-sidebar .story-table td {
-    text-align: center;
-  }
-}
-
-@media screen and ((max-width: 1024px) and (min-width: 908px)) {
-  body.include-right-sidebar .story-card {
-    display: flex;
-    flex-direction: column;
-  }
-
-  body.include-right-sidebar .story-table tbody {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  body.include-right-sidebar .story-table td {
-    padding-top: 0;
-  }
-}
-
-@media screen and (max-width: 908px) {
+  body.include-right-sidebar .story-table .field-row,
   body.include-right-sidebar .char-card .field-row {
     display: flex;
     flex-direction: column;
-    justify-content: center;
   }
 
+  body.include-right-sidebar .story-card .field-row>*,
   body.include-right-sidebar .char-card .field-row>* {
     text-align: center;
     padding: 0.125em 0;
   }
 
+  body.include-right-sidebar .story-card .field-row>td,
   body.include-right-sidebar .char-card .field-row>td {
     padding-bottom: 10px;
   }
