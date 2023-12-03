@@ -20,7 +20,7 @@ module.exports = function (eleventyConfig) {
 
 		collection.forEach(page => {
 			if (!Array.isArray(page.data.linkedPages)) return;
-			if (page.data.linkedPages.includes(id)) {
+			if (page.data.linkedPages.includes(id) && !(this.ctx.linkedPages.includes(page.data.id))) {
 				links.push(page);
 			}
 		});
