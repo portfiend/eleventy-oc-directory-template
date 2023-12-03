@@ -15,7 +15,8 @@ pageThemes:
 
 name: Character Name
 subtitle: Informative title
-pronouns: any pronouns
+fullName: This guy has a really long name
+pronouns: Any pronouns
 
 ---
 <h1>{{pageTitle}}</h1>
@@ -41,7 +42,7 @@ MAIN PANEL
 		<main class="card-right card-details card-highlight">
 			<table class="card-table">
 				<tbody>
-					{% keyValue "Full name", "Aliases, etc." %}
+					{% keyValue "Full name", fullName %}
 					{% keyValue "Title", subtitle %}
 					{% keyValue "Gender", "Example" %}
 					{% keyValue "Pronouns", pronouns %}
