@@ -1,12 +1,14 @@
 const markdownIt = require("markdown-it");
 const { attrs } = require("@mdit/plugin-attrs");
 const markdownDiv = require('markdown-it-div');
+const faviconPlugin = require("eleventy-favicon");
 
 const contentWarning = require("./src/_data/contentWarning.json");
 const metadata = require("./src/_data/metadata.json");
 
 module.exports = function (eleventyConfig) {
 	const markdownEngine = configureMarkdown(eleventyConfig);
+  eleventyConfig.addPlugin(faviconPlugin, { destination: "build/assets" });
 
 	eleventyConfig.addPassthroughCopy("./src/assets/");
 	eleventyConfig.addWatchTarget("./src/assets/");

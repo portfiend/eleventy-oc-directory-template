@@ -10,9 +10,11 @@ date: Last Modified
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{{metadata.title}}
-			{{"| " + pageTitle if pageTitle}}</title>
+		<title>{{metadata.title}} {{"| " + pageTitle if pageTitle}}</title>
+
+  	{% favicon './src/assets/favicon.svg' %}
 		<link rel="stylesheet" href="{{metadata.assets.css}}/style.css">
+
 		{% for theme in pageThemes %}
 			<link rel="stylesheet" href="{{metadata.assets.css}}/page/{{theme}}">
 		{% endfor %}
@@ -28,6 +30,7 @@ date: Last Modified
 		{% if options.enableWidgets %}
 			<script src="{{metadata.assets.js}}/widgets.js"></script>
 		{% endif %}
+
 	</head>
 	<body>
 		<div id="skip-links">
