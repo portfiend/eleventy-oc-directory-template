@@ -12,6 +12,12 @@
   grid-template-rows: auto 320px;
 }
 
+.card-highlight {
+  border-radius: var(--container-border-radius);
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
 .card-header {
   grid-area: header;
   background: var(--color-accent);
@@ -54,9 +60,6 @@
   flex-direction: column;
   gap: 10px;
   grid-area: details;
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: var(--container-border-radius);
-  padding: 10px;
 }
 
 .card-table {
@@ -114,9 +117,6 @@
 }
 
 .locard-details {
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: var(--container-border-radius);
-  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -193,9 +193,6 @@
 }
 
 .subloc-middle {
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: var(--container-border-radius);
-  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;

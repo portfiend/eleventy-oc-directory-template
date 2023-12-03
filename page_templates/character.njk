@@ -38,7 +38,7 @@ MAIN PANEL
 			{% set refImgDesc = "Reference image of " + name %}
 			{% lightboxImg "thumbnails/character/example.png", refImgDesc %}
 		</div>
-		<div class="card-right card-details">
+		<div class="card-right card-details card-highlight">
 			<table class="card-table">
 				<tbody>
 					{% keyValue "Full name", "Aliases, etc." %}
@@ -82,13 +82,13 @@ GALLERY PANEL
 -->
 {% tabPanel id="gallery", listId="character" %}
 	{% gallery %}
-		{% lightboxImg "thumbnails/character/example.png", "Example image", {
+		{% lightboxImg "banner.jpg", "Example image", {
 			artist: "Artist name here",
 			artist_website: "https://example.com",
 			license: "All rights reserved",
 			creation_date: "2023-11-20"
 		} %}
-		{% lightboxImg "thumbnails/character/example.png", "Example image", {
+		{% lightboxImg "portrait.jpg", "Example image", {
 			artist: "Artist name here",
 			artist_website: "https://example.com",
 			license: "All rights reserved",
