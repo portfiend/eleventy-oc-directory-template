@@ -444,7 +444,12 @@ ul.gallery {
 body {
   --gap-slope: calc((var(--gap-max) - var(--gap-min))/(var(--gap-maxw) - var(--gap-minw)));
   --gap-offset: calc((var(--gap-max) - var(--gap-slope) * var(--gap-maxw)) * 1px);
-  --gap-size: calc(var(--gap-slope) * 100% + var(--gap-offset));
+  --gap-size: calc(var(--gap-slope) * 100vw + var(--gap-offset));
+
+  --pad-slope: calc((var(--pad-max) - var(--pad-min))/(var(--pad-maxw) - var(--pad-minw)));
+  --pad-offset: calc((var(--pad-max) - var(--pad-slope) * var(--pad-maxw)) * 1px);
+  --pad-size: calc(var(--pad-slope) * 100vw + var(--pad-offset));
+  --pad: max(var(--pad-size), calc(var(--pad-min) * 1px));
 }
 
 /* two sidebars */
@@ -464,11 +469,24 @@ body {
 
 @media screen and (max-width: 908px) {
   body.include-right-sidebar {
+    --pad-max: 40;
+    --pad-min: 10;
+    --pad-maxw: 908;
+    --pad-minw: 540;
     margin: 0px 5px 0px;
     grid-template-areas: "sidebar" "main" "rightsidebar";
     grid-auto-columns: min(800px, 100%);
     gap: 20px;
   }
+
+  body.include-right-sidebar #content {
+    padding-left: var(--pad);
+    padding-right: var(--pad);
+  }
+
+  body.include-right-sidebar .navigation-bar {
+    margin: 0 calc(-1 * var(--pad));
+  } 
 
   body.include-right-sidebar #left-sidebar {
     border-top: none;
