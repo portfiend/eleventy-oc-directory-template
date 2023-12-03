@@ -234,12 +234,20 @@
   overflow: hidden
 }
 
-.story-banner figure,
-.story-banner a,
-.story-banner img {
-  margin: 0;
+.story-banner figure {
   padding: 0;
+  margin: 0;
+  height: 100%
+}
+
+.story-banner a {
+  height: 100%;
   object-fit: contain;
+}
+
+.story-banner img {
+  object-fit: cover;
+  margin: auto;
   height: 100%
 }
 

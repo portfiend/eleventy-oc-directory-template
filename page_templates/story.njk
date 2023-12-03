@@ -14,6 +14,10 @@ pageThemes:
 
 name: Story Name
 subtitle: Informative title
+
+banner: stories/example.jpg
+bannerDesc: Cover image for Story Name
+
 medium: Book, game, comic, etc.
 genre: Science Fiction / Fantasy / Horror / Thriller
 rating: Not Yet Rated
@@ -48,8 +52,7 @@ cast:
 		<div class="subtitle">{{subtitle}}</div>
 	</header>
 	<div class="story-banner">
-		{% set coverDesc = "Cover image for " + name %}
-		{% lightboxImg "stories/example.jpg", coverDesc %}
+		{% lightboxImg banner, bannerDesc %}
 	</div>
 	<main class="card-highlight story-details">
 		<table class="story-table">
