@@ -263,6 +263,7 @@ p>.blur-content {
   margin: 10px auto;
   box-sizing: border-box;
   border-collapse: collapse;
+  vertical-align: top;
 }
 
 .field-table caption {
@@ -270,11 +271,11 @@ p>.blur-content {
   opacity: 0.5;
 }
 
-.field-row {
+.field-table .field-row {
   border-bottom: 1px solid var(--color-border);
 }
 
-.field-row:last-child {
+.field-table .field-row:last-child {
   border-bottom: none;
 }
 
@@ -439,12 +440,12 @@ ul.gallery {
   background-color: var(--color-accent);
 }
 
+
 body {
   --gap-slope: calc((var(--gap-max) - var(--gap-min))/(var(--gap-maxw) - var(--gap-minw)));
   --gap-offset: calc((var(--gap-max) - var(--gap-slope) * var(--gap-maxw)) * 1px);
   --gap-size: calc(var(--gap-slope) * 100% + var(--gap-offset));
 }
-
 
 /* two sidebars */
 
