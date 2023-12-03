@@ -1,0 +1,68 @@
+{% macro collectionNav() %}
+	{% set namespace = namespaces[type] %}
+	{% set previous = collections[type] | alphabetizePages | getPreviousCollectionItem %}
+	{% set next = collections[type] | alphabetizePages | getNextCollectionItem %}
+
+	<ul class="navigation-bar">
+		{% if previous %}
+			<li class="nav-previous" aria-label="Previous in {{namespace.title}}">
+			Previous: <a href="{{ previous.url }}">{{ previous.data.pageTitle }}</a>
+			</li>
+		{% endif %}
+
+		{% if namespace %}
+			<li class="nav-back" aria-label="Go back to {{namespace.title}} directory">
+				<a href="{{namespace.url}}">Back to {{namespace.title}}</a>
+			</li>
+		{% endif %}
+
+		{% if next %}
+			<li class="nav-next" aria-label="Next in {{namespace.title}}">
+			Next: <a href="{{ next.url }}">{{ next.data.pageTitle }}</a>
+			</li>
+		{% endif %}
+	</ul>
+{% endmacro %}
+
+{% macro tagNav() %}
+	<article class="tag-navigation">
+		<h2 id="tag-header">Tags</h2>
+		<ul aria-labelledby="tag-header">
+			{% for tag in tags %}
+				<li>
+					<a href="/tagged/{{tag | slugify}}" class="tag-link tag-button">{{tag}}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</article>
+{% endmacro %}
+
+{% macro linkNav() %}
+	{% if linkedPages and linkedPages | length > 0 %}
+		<article>
+			<h2 aria-labelledfor="linked-pages">Linked Pages</h2>
+			<ul id="linked-pages">
+				{% for _id in linkedPages %}
+					{% set _page = collections.all | getPageById(_id) %}
+					<li>
+						<a class="setting-link" href="{{_page.url}}" data-id="{{_page.data.id}}">{{_page.data.name}}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</article>
+	{% endif %}
+
+	{% set whatLinksHere = collections.all | whatLinksHere %}
+	{% if whatLinksHere and whatLinksHere | length > 0 %}
+		<article>
+			<h2 aria-labelledfor="what-links-here">What Links Here</h2>
+			<ul id="what-links-here">
+				{% for _page in whatLinksHere %}
+					<li>
+						<a href="{{_page.url}}">{{_page.data.pageTitle}}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</article>
+	{% endif %}
+{% endmacro %}

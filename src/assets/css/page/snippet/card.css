@@ -1,0 +1,373 @@
+.card {
+  display: grid;
+  width: 100%;
+  margin: 0 -30px;
+  padding: 10px 30px;
+  gap: 10px;
+}
+
+.char-card {
+  grid-template-areas: "header header" "reference details";
+  grid-template-columns: auto auto;
+  grid-template-rows: auto 320px;
+}
+
+.card-highlight {
+  border-radius: var(--container-border-radius);
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+.card-header {
+  grid-area: header;
+  background: var(--color-accent);
+  padding: 10px;
+  border-radius: var(--container-border-radius);
+}
+
+.card-header h2 {
+  margin: 5px 0;
+}
+
+.card-reference {
+  grid-area: reference;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--container-border-radius);
+  width: 240px;
+}
+
+.card-reference figure {
+  position: absolute;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.card-reference figure a,
+.card-reference figure img {
+  display: block;
+  object-fit: cover;
+  width: auto;
+  height: 100%;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  grid-area: details;
+}
+
+.card-table {
+  width: 100%;
+}
+
+.card-table tbody {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 20px;
+}
+
+.card-table tr th {
+  padding-left: 0;
+}
+
+.card-table tr td {
+  padding-right: 0;
+}
+
+.card-table tr {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-biography {
+  overflow-y: auto;
+}
+
+.locard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.locard-banner figure {
+  margin: 0;
+  border-radius: var(--container-border-radius);
+  overflow: hidden;
+  width: 100%;
+  height: 240px;
+}
+
+.locard-banner figure a {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.locard-banner figure img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.locard-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.locard-table {
+  width: 100%;
+}
+
+.locard-table tbody {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.locard-table tr {
+  display: flex;
+  justify-content: space-between;
+}
+
+.locard-biography {
+  height: 120px;
+  overflow-y: auto;
+}
+
+.subloc-card {
+  display: grid;
+  grid-template:
+    "header header header"
+    "left middle right";
+  grid-template-columns: 2fr 3fr 2fr;
+  grid-template-rows: auto 240px;
+  gap: 10px;
+}
+
+.subloc-header {
+  grid-area: header;
+}
+
+.subloc-left {
+  grid-area: left;
+}
+
+.subloc-right {
+  grid-area: right;
+}
+
+.subloc-middle {
+  grid-area: middle;
+}
+
+
+.subloc-imgcontainer {
+  overflow: hidden;
+  border-radius: var(--container-border-radius);
+}
+
+.subloc-imgcontainer figure {
+  display: block;
+  margin: 0;
+  height: 100%;
+}
+
+.subloc-imgcontainer a {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.subloc-imgcontainer img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.subloc-middle {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.subloc-table {
+  width: 100%;
+}
+
+.subloc-table tr th {
+  padding-left: 0;
+}
+
+.subloc-table tr td {
+  padding-right: 0;
+}
+
+.subloc-biography {
+  overflow-y: auto;
+}
+
+.story-card {
+  grid-template-areas:
+    "header header"
+    "banner details";
+
+  grid-template-columns: 70% auto;
+  grid-template-rows: auto 360px;
+}
+
+.story-header {
+  grid-area: header;
+}
+
+.story-banner {
+  grid-area: banner;
+  height: 100%;
+  border-radius: var(--container-border-radius);
+  ;
+  background: rgba(0, 0, 0, 0.1);
+  overflow: hidden
+}
+
+.story-banner figure {
+  padding: 0;
+  margin: 0;
+  height: 100%
+}
+
+.story-banner a {
+  height: 100%;
+  object-fit: contain;
+}
+
+.story-banner img {
+  object-fit: cover;
+  margin: auto;
+  height: 100%
+}
+
+.story-details {
+  grid-area: details;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.story-table {
+  width: 100%;
+}
+
+.story-table .field-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.story-card .field-row>* {
+  text-align: center;
+  padding: 0.125em 0;
+}
+
+.story-table .field-row th {
+  vertical-align: top;
+}
+
+.story-table .field-row td {
+  padding-bottom: 10px;
+}
+
+/* two column */
+
+@media screen and (max-width: 1360px) {
+  body.include-right-sidebar .char-card .field-row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  body.include-right-sidebar .char-card .field-row>* {
+    text-align: center;
+    padding: 0.125em 0;
+  }
+
+  body.include-right-sidebar .story-card .field-row>td,
+  body.include-right-sidebar .char-card .field-row>td {
+    padding-bottom: 10px;
+  }
+}
+
+/* regardless of columns */
+
+@media screen and (max-width: 620px) {
+  .char-card {
+    grid-template-areas: "header" "reference" "details";
+    grid-template-columns: auto;
+    grid-template-rows: auto 320px 400px;
+  }
+
+  .card-reference {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .card-reference figure {
+    position: relative;
+    width: 240px;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .card-details {
+    gap: 10px;
+  }
+
+  .subloc-card {
+    display: grid;
+    grid-template:
+      "header header"
+      "middle middle"
+      "left right";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 240px 240px;
+    gap: 10px;
+  }
+
+  .story-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .story-table tbody {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .story-table td {
+    padding-top: 0;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .locard-table .field-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .locard-table .field-row>* {
+    text-align: center;
+    padding: 0.125em 0;
+  }
+
+  .locard-table .field-row>td {
+    padding-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .story-table tbody {
+    display: table;
+  }
+}

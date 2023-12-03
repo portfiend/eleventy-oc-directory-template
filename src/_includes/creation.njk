@@ -1,0 +1,27 @@
+---
+layout: base.njk
+
+type: all
+
+pageTitle: Creation Name
+thumbnailUrl: thumbnails/character/example.png
+pageThemes: []
+enableRightSidebar: true
+
+name: Creation Name
+title: Informational title
+linkedPages: []
+
+---
+
+{% from "macros/_nav.njk" import collectionNav with context %}
+
+<article>
+	<main>
+		{{ content | safe }}
+	</main>
+
+	<footer>
+		{{ collectionNav() }}
+	</footer>
+</article>

@@ -1,0 +1,38 @@
+---
+layout: base.njk
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  addAllPagesToCollections: true 
+  filter:
+    - all
+
+permalink: /tagged/{{ tag }}/
+
+eleventyComputed:
+  pageTitle: Tagged “{{ tag }}”
+
+addAllPagesToCollections: true 
+
+---
+<h1>Tagged “{{tag}}”</h1>
+
+{% for namespace, data in namespaces %}
+  {% set taglist = collections[tag] | namespaced(namespace) | alphabetizePages %}
+  <h2>
+    {{data.title}} ({{taglist | length}})
+  </h2>
+
+  <ul>
+    {% for _tag in taglist | reverse %}
+      <li>
+        <a href="{{ _tag.url }}">{{ _tag.data.pageTitle }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+
+<p>
+  <a href="/tags">Back to tag directory</a>
+</p>

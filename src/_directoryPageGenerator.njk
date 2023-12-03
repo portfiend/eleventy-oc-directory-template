@@ -1,0 +1,25 @@
+---
+layout: base.njk
+
+pagination:
+  data: namespaces
+  size: 1
+  alias: namespace
+  addAllPagesToCollections: true 
+
+permalink: "{{namespaces[namespace].url}}/"
+
+eleventyComputed:
+  pageTitle: "{{namespaces[namespace].title}}"
+
+---
+
+<h1>{{namespaces[namespace].title}}</h1>
+
+<ul class="thumb-list">
+  {%- for page in collections[namespace] | alphabetizePages -%}
+    <li class="thumb-list-item">
+      {% thumbnail page %}
+    </li>
+  {%- endfor -%}
+</ul>

@@ -1,0 +1,17 @@
+{
+	"character": {
+		"title": "Characters",
+		"url": "/characters",
+		"abbr": "Ch"
+	},
+	"location": {
+		"title": "Locations",
+		"url": "/locations",
+		"abbr": "Lc"
+	},
+	"story": {
+		"title": "Stories",
+		"url": "/stories",
+		"abbr": "St"
+	}
+}

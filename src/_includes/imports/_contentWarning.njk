@@ -1,0 +1,119 @@
+{% if contentWarning.showAdultContentWarning or contentWarning.showSiteContentWarning %}
+	<dialog id="content-warning" autofocus>
+		{% if contentWarning.showAdultContentWarning %}
+			<p>
+				This website {{contentWarning.mustBeAdult and "has been" or "may contain content" }} marked for 
+				<b>18+ audiences</b> only. By clicking the checkbox below, you agree that you are above this age.
+			</p>
+			<input id="cbx-adult" 
+				value="adult" 
+				type="checkbox" 
+				autocomplete="off"/>
+			<label for="cbx-adult">I agree that I am over the age of 18!</label>
+		{% endif %}
+
+		{% if contentWarning.showSiteContentWarning %}
+			<p>
+				This site may contain the following content warnings. Sensitive content will be 
+				<b>blurred</b> by default. Checked boxes will instead be <b>visible</b> by default. 
+			</p>
+			<ul>
+				{% for warning, warningData in contentWarning.siteWarnings %}
+					<li>
+						<input id="cbx-{{warning}}" 
+							value="{{warning}}" 
+							type="checkbox"
+							autocomplete="off"
+							{{'data-require='+ warningData.require if warningData.require}}
+							{{"checked" if warningData.defaultVisibility}}
+							{{"disabled" if warningData.require}}/>
+						<label id="cbx-{{warning}}-label" for="cbx-{{warning}}">
+							{{warningData.name}}
+							{{"(" + warningData.description + ")" if warningData.description}}
+						</label>
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+
+		<form method="dialog">
+			<button 
+				id="confirm-dialog"
+				{{ 'data-require=adult' if contentWarning.mustBeAdult }} >
+				Confirm my content preferences
+			</button>
+		</form>
+
+		<p>(These settings may be changed at any time via <b>Content Options</b> in the navigation bar.)</p>
+	</dialog>
+
+	{% set warnings = contentWarning.siteWarnings | keys %}
+	{% if contentWarning.showAdultContentWarning %}
+		{{ warnings.unshift("adult") and "" }}
+	{% endif %}
+	<script>
+		{ 
+			const dialog = document.querySelector("dialog#content-warning");
+			const alreadyDone = localStorage.getItem("cw-confirm");
+			initializeContentWarning('{{warnings | dump | safe }}');
+			if (alreadyDone !== "true") {
+				dialog.showModal();
+			}
+		}
+	</script>
+
+	<style>
+		{% for warning in warnings %}
+			body:not(.optIn-{{warning}}) .cw-{{warning}} {
+				display: none;
+			} 
+
+			.blur-content {
+    		cursor: pointer;
+			} 
+
+			.blur-content[data-blurred] .blur-inner {
+    		filter: blur(5px);
+			} 
+		{% endfor %}
+	</style>
+{% endif %}
+
+{% if contentWarningForceEjects %}
+	{% if contentWarningForceEjects is string %}
+		<script>
+			const forceRedirect = () => {
+				const cw = localStorage.getItem("optIn-{{contentWarningForceEjects}}");
+				if (!cw || cw === "false") {
+					window.location.href = "../"
+				}
+			}
+			
+			document.body.addEventListener("updateContentSettings", forceRedirect);
+			
+			{ 
+				const alreadyDone = localStorage.getItem("cw-confirm");
+				if (alreadyDone) forceRedirect();
+			}
+		</script>
+	{% elif contentWarningForceEjects is iterable %}
+		<script>
+			const cws = ["{{contentWarningForceEjects | join('", "') | safe}}"];
+			const forceRedirect = () => {
+				for (const w in cws) {
+					const warning = cws[w];
+					const cw = localStorage.getItem("optIn-" + warning);
+					if (!cw || cw === "false") {
+						window.location.href = "../"
+					}
+				}
+			}
+
+			document.body.addEventListener("updateContentSettings", forceRedirect);
+			{ 
+				const alreadyDone = localStorage.getItem("cw-confirm");
+				if (alreadyDone) forceRedirect();
+			}
+		</script>
+	{% endif %}
+{% endif %}

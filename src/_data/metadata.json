@@ -1,0 +1,9 @@
+{
+	"title": "Website Name",
+	"language": "en",
+	"assets": {
+		"css": "/assets/css",
+		"img": "/assets/img",
+		"js": "/assets/js"
+	}
+}

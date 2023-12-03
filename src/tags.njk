@@ -1,0 +1,24 @@
+---
+layout: base.njk
+pageTitle: Tags
+---
+
+<h1>
+	Tag Directory
+</h1>
+
+<ul aria-label="Tag pages">
+	{% for tag in collections | keys %}
+		{% if tag !== "all" %}
+			<li>
+				<a href="/tagged/{{tag}}">{{tag}}</a>
+				{% set namespaceCounts = [] %}
+				{% for namespace, data in namespaces %}
+					{% set temp %}{{collections[tag] | namespaced(namespace) | length}} <abbr title="{{data.title | lower}}">{{data.abbr}}</abbr>{% endset %}
+					{{ namespaceCounts.push(temp) and "" }}
+				{% endfor %}
+				({{ namespaceCounts | join(", ") | safe }})
+			</li>
+		{% endif %}
+	{% endfor %}
+</ul>

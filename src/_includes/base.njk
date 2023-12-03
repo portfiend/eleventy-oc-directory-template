@@ -1,13 +1,59 @@
+---
+
+date: Last Modified
+
+---
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{metadata.language}}">
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Website {{ "| " + pageTitle if pageTitle }}</title>
-		<link rel="stylesheet" href="/assets/css/style.css">
+		<title>{{metadata.title}} {{"| " + pageTitle if pageTitle}}</title>
+
+  	{% favicon './src/assets/favicon.svg' %}
+		<link rel="stylesheet" href="{{metadata.assets.css}}/style.css">
+
+		{% for theme in pageThemes %}
+			<link rel="stylesheet" href="{{metadata.assets.css}}/page/{{theme}}">
+		{% endfor %}
+
+		{% if options.enableContentWarnings %}
+			<script src="{{metadata.assets.js}}/contentWarning.js"></script>
+		{% endif %}
+
+		{% if options.enableLightbox %}
+			<script src="{{metadata.assets.js}}/lightbox.js"></script>
+		{% endif %}
+		
+		{% if options.enableWidgets %}
+			<script src="{{metadata.assets.js}}/widgets.js"></script>
+		{% endif %}
+
 	</head>
 	<body>
-		{{content | safe}}
+		<div id="skip-links">
+			<a href="#content">Jump to main content</a>
+		</div>
+
+		{% include "imports/_sidebar.njk" %}
+
+		<main id="content">
+			{{content | safe}}
+		</main>
+
+		{% if enableRightSidebar %}
+			{% include "imports/_rightSidebar.njk" %}
+			<script>document.body.classList.add("include-right-sidebar")</script>
+		{% endif %}
+
+		{% if options.enableContentWarnings %}
+			{% include "imports/_contentWarning.njk" %}
+		{% endif %}
+		
+		{% if options.enableLightbox %}
+			{% include "imports/_lightbox.njk" %}
+		{% endif %}
 	</body>
 </html>
