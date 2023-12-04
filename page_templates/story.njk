@@ -6,7 +6,7 @@ tags:
 # Used as a short ID for various page data-retrieving functions.
 id: "story:example"
 pageTitle: Story Name
-thumbnailUrl: thumbnails/story/example.png
+thumbnailUrl: icons/example.svg
 linkedPages:
 - character:example
 pageThemes:
@@ -15,7 +15,7 @@ pageThemes:
 name: Story Name
 subtitle: Informative title
 
-banner: stories/example.jpg
+banner: banner.jpg
 bannerDesc: Cover image for Story Name
 
 medium: Book, game, comic, etc.
@@ -47,15 +47,15 @@ cast:
 <h1>{{pageTitle}}</h1>
 
 <article class="story-card card story-{{name | slugify}}">
-	<header class="story-header card-header">
+	<header class="card-header">
 		<h2>{{name}}</h2>
 		<div class="subtitle">{{subtitle}}</div>
 	</header>
-	<div class="story-banner">
+	<div class="card-reference">
 		{% lightboxImg banner, bannerDesc %}
 	</div>
-	<main class="card-highlight story-details">
-		<table class="story-table">
+	<main class="card-highlight card-details">
+		<table class="card-table">
 			{% keyValue "Medium", medium %}
 			{% keyValue "Genre", genre %}
 			{% keyValue "Authors", authors %}

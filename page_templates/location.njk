@@ -6,13 +6,18 @@ tags:
 # Used as a short ID for various page data-retrieving functions.
 id: "location:example"
 pageTitle: Location Name
-thumbnailUrl: thumbnails/location/example.png
-linkedPages: []
+thumbnailUrl: icons/example.svg
+: []
 pageThemes:
 - snippet/card.css
 
 name: Location Name
 subtitle: Informative title
+tableFields:
+  Population: 1,000,000,000
+  Climate: Example text
+  Terrain: Example text
+  Government: Example text
 
 ---
 
@@ -30,11 +35,11 @@ MAIN PANEL
 -->
 {% tabPanel id="main", listId="setting" %}
 	<article class="card locard locard-{{name | slugify}}">
-		<header class="locard-header card-header">
+		<header class="card-header">
 			<h2>{{name}}</h2>
 			<div class="subtitle">{{subtitle}}</div>
 		</header>
-		<div class="locard-banner">
+		<div class="card-reference">
 			{% lightboxImg "banner.jpg", "Example image", {
 				artist: "Artist name here",
 				artist_website: "https://example.com",
@@ -42,16 +47,10 @@ MAIN PANEL
 				creation_date: "2023-11-20"
 			} %}
 		</div>
-		<div class="locard-details card-highlight">
-			<table class="locard-table">
-				<tbody>
-					{% keyValue "Population", "Example A" %}
-					{% keyValue "Climate", "Example B" %}
-					{% keyValue "Terrain", "Example C" %}
-					{% keyValue "Government", "Example D" %}
-				</tbody>
-			</table>
-			<div class="locard-biography">
+		<div class="card-details card-highlight">
+			{% from "macros/_tableData.njk" import cardTable with context %}
+			{{ cardTable() }}
+			<div class="card-biography">
 				{% renderMarkdown %}
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi varius libero non sem dapibus, eget
 					viverra nisl sagittis. 
@@ -66,21 +65,21 @@ MAIN PANEL
 	</article>
 
 	<article id="sublocation-name" class="subloc-card card">
-		<header class="subloc-header card-header">
+		<header class="card-header">
 			<h2>Sub-Location</h2>
 		</header>
-		<div class="subloc-left subloc-imgcontainer">
+		<div class="subloc-left card-reference">
 			{% set refImgDesc = "Reference image of Sublocation" %}
 			{% lightboxImg "portrait.jpg", refImgDesc %}
 		</div>
 		<main class="subloc-middle card-highlight">
-			<table class="subloc-table">
+			<table class="card-table">
 				<tbody>
 					{% keyValue "Type", "Example" %}
 					{% keyValue "Address", "123 Main Street" %}
 				</tbody>
 			</table>
-			<div class="subloc-biography">
+			<div class="card-biography">
 				{% renderMarkdown %}
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi varius libero non sem dapibus, eget
 					viverra nisl sagittis. 
@@ -92,7 +91,7 @@ MAIN PANEL
 				{% endrenderMarkdown %}
 			</div>
 		</main>
-		<div class="subloc-right subloc-imgcontainer">
+		<div class="subloc-right card-reference">
 			{% set refImgDesc = "Reference image of Sublocation" %}
 			{% lightboxImg "banner.jpg", refImgDesc %}
 		</div>
@@ -125,19 +124,19 @@ GALLERY PANEL
 -->
 {% tabPanel id="gallery", listId="setting" %}
 	{% gallery %}
-		{% lightboxImg "thumbnails/character/example.png", "Example image", {
+		{% lightboxImg "portrait.jpg", "Example image", {
 			artist: "Artist name here",
 			artist_website: "https://example.com",
 			license: "All rights reserved",
 			creation_date: "2023-11-20"
 		} %}
-		{% lightboxImg "thumbnails/character/example.png", "Example image", {
+		{% lightboxImg "portrait.jpg", "Example image", {
 			artist: "Artist name here",
 			artist_website: "https://example.com",
 			license: "All rights reserved",
 			creation_date: "2023-11-20"
 		} %}
-		{% lightboxImg "thumbnails/character/example.png", "Example image", {
+		{% lightboxImg "portrait.jpg", "Example image", {
 			artist: "Artist name here",
 			artist_website: "https://example.com",
 			license: "All rights reserved",

@@ -1,0 +1,9 @@
+{% macro cardTable() %}
+	<table class="card-table">
+		<tbody>
+			{% for key, value in tableFields %}
+				{% keyValue key, value %}
+			{% endfor %}
+		</tbody>
+	</table>
+{% endmacro %}
