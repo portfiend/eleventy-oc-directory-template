@@ -17,9 +17,11 @@ eleventyComputed:
 <h1>{{namespaces[namespace].title}}</h1>
 
 <ul class="thumb-list">
-  {%- for page in collections[namespace] | alphabetizePages -%}
-    <li class="thumb-list-item">
-      {% thumbnail page %}
-    </li>
-  {%- endfor -%}
+  {% if collections[namespace] and collections[namespace] | length > 0 %}
+    {%- for page in collections[namespace] | alphabetizePages -%}
+      <li class="thumb-list-item">
+        {% thumbnail page %}
+      </li>
+    {%- endfor -%}
+  {% endif %}
 </ul>

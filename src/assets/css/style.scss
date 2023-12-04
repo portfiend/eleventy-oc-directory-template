@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 :root {
   --color-primary: #aaa;
   --color-secondary: #eee;
@@ -12,7 +14,7 @@
   --bg-main: var(--color-secondary);
   --bg-sidebar: var(--bg-main);
   --border-width: 4px;
-  --border-width-thin: 2px;
+  --border-width-thin: 1px;
   --border-container: var(--border-width) solid var(--color-border);
   --border-thumbnail: var(--border-width-thin) solid var(--color-border);
   --cw-shadow-color: rgba(0, 0, 0, 0.65);
@@ -22,13 +24,16 @@
   --thumbnail-size: 160px;
 }
 
+$sb-width: 180;
+$sidebar-width: $sb-width * 1px;
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: var(--bg-body);
   color: var(--color-text);
   display: grid;
   grid-template-areas: "sidebar main rightsidebar";
-  grid-auto-columns: 180px 800px 180px;
+  grid-auto-columns: $sidebar-width 800px $sidebar-width;
   margin: 40px 80px;
   padding: 0;
   grid-gap: 20px;
@@ -141,7 +146,6 @@ footer {
 
 .thumbnail {
   display: block;
-  border: var(--border-thumbnail);
   width: var(--thumbnail-size);
   height: var(--thumbnail-size);
 }
@@ -454,15 +458,19 @@ body {
 
 /* two sidebars */
 
-@media screen and (max-width: 1360px) {
+$max-width: 1000 + $sb-width * 2;
+$mw-px: $max-width * 1px;
+$mw-col: math.div(800, $max-width) * 100%;
+
+@media screen and (max-width: $mw-px) {
   body.include-right-sidebar {
     --gap-max: 20;
     --gap-min: 5;
-    --gap-maxw: 1360;
+    --gap-maxw: #{$max-width};
     --gap-minw: 908;
     margin: 40px 0;
     justify-content: center;
-    grid-auto-columns: 180px calc(800 / 1360 * 100%) 180px;
+    grid-auto-columns: $sidebar-width $mw-col $sidebar-width;
     gap: max(var(--gap-size), calc(var(--gap-min) * 1px));
   }
 }

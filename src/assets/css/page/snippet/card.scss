@@ -1,0 +1,304 @@
+.card {
+  display: grid;
+  width: 100%;
+  margin: 0 -30px;
+  padding: 10px 30px;
+  gap: 10px;
+
+  .card-highlight {
+    border-radius: var(--container-border-radius);
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 10px;
+  }
+  
+  .card-header {
+    grid-area: header;
+    background: var(--color-accent);
+    padding: 10px;
+    border-radius: var(--container-border-radius);
+  }
+  
+  .card-header h2 {
+    margin: 5px 0;
+  }
+  
+  .card-reference {
+    grid-area: reference;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--container-border-radius);
+  }
+  
+  .card-reference figure {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  
+  .card-reference figure a,
+  .card-reference figure img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .card-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    grid-area: details;
+  }
+  
+  .card-table {
+    width: 100%;
+  }
+  
+  .card-table tbody {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 20px;
+  }
+  
+  .card-table tr th {
+    padding-left: 0;
+  }
+  
+  .card-table tr td {
+    padding-right: 0;
+  }
+  
+  .card-table tr {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .card-biography {
+    overflow-y: auto;
+  }
+}
+
+.char-card {
+  grid-template-areas: "header header" "reference details";
+  grid-template-columns: auto auto;
+  grid-template-rows: auto 320px;
+
+  .card-reference {
+    width: 240px;
+  }
+}
+
+.locard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+  .card-reference {
+    height: 240px;
+  }
+
+  .card-biography {
+    height: 120px;
+    overflow-y: auto;
+  }
+}
+
+.subloc-card {
+  display: grid;
+  grid-template:
+    "header header header"
+    "left middle right";
+  grid-template-columns: 2fr 3fr 2fr;
+  grid-template-rows: auto 240px;
+  gap: 10px;
+
+  .card-header {
+    grid-area: header;
+  }
+  
+  .subloc-left {
+    grid-area: left;
+  }
+  
+  .subloc-right {
+    grid-area: right;
+  }
+  
+  .subloc-middle {
+    grid-area: middle;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .card-table tbody {
+    width: 100%;
+    display: table;
+  }
+}
+
+.story-card {
+  grid-template-areas:
+    "header header"
+    "banner details";
+
+  grid-template-columns: 70% auto;
+  grid-template-rows: auto 360px;
+
+  .card-header {
+    grid-area: header;
+  }
+
+  .card-reference {
+    grid-area: banner;
+    height: 100%;
+    border-radius: var(--container-border-radius);
+    background: rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  
+    figure {
+      padding: 0;
+      margin: 0;
+      height: 100%
+
+      a {
+        height: 100%;
+        object-fit: contain;
+      }
+      
+      img {
+        object-fit: cover;
+        margin: auto;
+        height: 100%
+      }
+    }
+  }
+  
+  .card-details {
+    grid-area: details;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  .card-table {
+    tbody {
+      width: 100%;
+      display: table;
+    }
+  
+    .field-row {
+      display: flex;
+      flex-direction: column;
+    
+      > * {
+        text-align: center;
+        padding: 0.125em 0;
+      }
+      
+      th {
+        vertical-align: top;
+      }
+      
+      td {
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
+
+/* two column */
+
+@media screen and (max-width: 1360px) {
+  body.include-right-sidebar {
+    .card .field-row {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .card .field-row > * {
+      text-align: center;
+      padding: 0.125em 0;
+    }
+  
+    .card .field-row>td {
+      padding-bottom: 10px;
+    }
+  }
+}
+
+/* regardless of columns */
+
+@media screen and (max-width: 620px) {
+  .char-card {
+    grid-template-areas: "header" "reference" "details";
+    grid-template-columns: auto;
+    grid-template-rows: auto 320px 400px;
+  }
+
+  .card-reference {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .card-reference figure {
+    position: relative;
+    width: 240px;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .card-details {
+    gap: 10px;
+  }
+
+  .subloc-card {
+    display: grid;
+    grid-template:
+      "header header"
+      "middle middle"
+      "left right";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 240px 240px;
+    gap: 10px;
+  }
+
+  .story-card {
+    display: flex;
+    flex-direction: column;
+
+    .card-table tbody {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .card-table td {
+      padding-top: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .locard-table {
+    .field-row {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  
+    .field-row>* {
+      text-align: center;
+      padding: 0.125em 0;
+    }
+  
+    .field-row>td {
+      padding-bottom: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .story-card .card-table tbody {
+    display: table;
+  }
+}
