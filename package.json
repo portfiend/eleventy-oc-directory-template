@@ -1,15 +1,25 @@
 {
-  "name": "example-project",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "eleventy-oc-directory-template",
+  "version": "1.1.0",
+  "description": "A website template that displays OCs and personal projects",
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "worldbuilding",
+    "characters",
+    "eleventy",
+    "original-character",
+    "11ty",
+    "eleventy-template"
+  ],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/portfiend/eleventy-oc-directory-template.git"
+	},
+  "author": "portfiend",
+  "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
     "@grimlink/eleventy-plugin-sass": "^1.0.3",
