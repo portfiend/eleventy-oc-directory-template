@@ -19,27 +19,6 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addWatchTarget("./src/assets/");
 
 	loadConfigModules(eleventyConfig);
-
-	// Filters
-	eleventyConfig.addFilter("keys", dict => {
-		return Object.keys(dict);
-	});
-
-	// Shortcodes
-	eleventyConfig.addShortcode("keyValue", (key, value) => {
-		return `
-			<tr class="field-row">
-				<th scope="row" class="field-key">
-					${key}
-				</th>
-				<td class="field-value">
-					${value}
-				</td>
-			</tr>
-		`;
-	});
-
-	console.log(this.returnOptions);
 	return this.returnOptions;
 };
 
