@@ -1,15 +1,15 @@
 const metadata = require("../src/_data/metadata.json");
 
 module.exports = function(eleventyConfig) {
-	eleventyConfig.addPairedShortcode("gallery", (content) => {
+	const gallery = (content) => {
 		return `
 			<ul class="gallery" aria-role="gallery" >
 				${content}
 			</ul>
 		`;
-	});
+	};
 
-	eleventyConfig.addShortcode("lightboxImg", (src, alt, meta, thumbnailSrc) => {
+	const lightboxImg = (src, alt, meta, thumbnailSrc) => {
 		let formattedMetadata = "";
 		if (meta && meta.constructor == Object) {
 			let metaStrings = [];
@@ -26,5 +26,8 @@ module.exports = function(eleventyConfig) {
 				</a>
 			</figure>
 		`;
-	});
+	};
+
+	eleventyConfig.addPairedShortcode("gallery", gallery);
+	eleventyConfig.addShortcode("lightboxImg", lightboxImg);
 };
