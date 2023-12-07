@@ -1,24 +1,24 @@
 const metadata = require("../src/_data/metadata.json");
 
 module.exports = function(eleventyConfig) {
-	eleventyConfig.addFilter("alphabetizePages", pages => {
+	const alphabetizePages = pages => {
 		pages.sort((a, b) => {
 			a = (a.data.pageTitle || "").toLowerCase();
 			b = (b.data.pageTitle || "").toLowerCase();
 			return a > b ? 1 : -1;
 		});
 		return pages;
-	});
+	};
 
-	eleventyConfig.addFilter("getPageById", (collection, id) => {
+	const getPageById = (collection, id) => {
 		return collection.find(item => item.data.id === id);
-	});
-
-	eleventyConfig.addFilter("namespaced", (collection, namespace) => {
+	};
+	
+	const namespaced = (collection, namespace) => {
 		return collection.filter(item => item.data.id && item.data.id.startsWith(namespace + ":"));
-	});
+	};
 
-	eleventyConfig.addFilter("whatLinksHere", function (collection) {
+	function whatLinksHere (collection) {
 		const links = [];
 		const id = this.ctx.id;
 		if (!id) return;
@@ -30,9 +30,9 @@ module.exports = function(eleventyConfig) {
 			}
 		});
 		return links;
-	});
+	}
 
-	eleventyConfig.addShortcode("linkById", function (id, selector, fallback) {
+	function linkById (id, selector, fallback) {
 		const ctx = this.ctx;
 		if (!ctx) return;
 		let pageName = fallback || "URL not found";
@@ -47,9 +47,9 @@ module.exports = function(eleventyConfig) {
 		}
 
 		return `<a href="${page && url || fallback || "#"}${selector || ""}">${pageName}</a>`;
-	});
+	}
 
-	eleventyConfig.addShortcode("thumbnail", (page, thumbnailSize) => {
+	const thumbnail = (page, thumbnailSize) => {
 		const title = page.data.name || page.data.pageTitle || "";
 
 		return `
@@ -63,5 +63,12 @@ module.exports = function(eleventyConfig) {
 				</a>
 			</article>
 		`;
-	});
+	};
+
+	eleventyConfig.addFilter("alphabetizePages", alphabetizePages);
+	eleventyConfig.addFilter("getPageById", getPageById);
+	eleventyConfig.addFilter("namespaced", namespaced);
+	eleventyConfig.addFilter("whatLinksHere", whatLinksHere);
+	eleventyConfig.addShortcode("linkById", linkById);
+	eleventyConfig.addShortcode("thumbnail", thumbnail);
 };
