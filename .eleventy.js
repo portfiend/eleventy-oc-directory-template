@@ -1,7 +1,4 @@
 const fs = require("fs");
-const markdownIt = require("markdown-it");
-const { attrs } = require("@mdit/plugin-attrs");
-const markdownDiv = require('markdown-it-div');
 const faviconPlugin = require("eleventy-favicon");
 const eleventySass = require("@grimlink/eleventy-plugin-sass");
 const sass = require("sass");
@@ -10,7 +7,6 @@ const contentWarning = require("./src/_data/contentWarning.json");
 const metadata = require("./src/_data/metadata.json");
 
 module.exports = function (eleventyConfig) {
-	const markdownEngine = configureMarkdown(eleventyConfig);
   eleventyConfig.addPlugin(faviconPlugin, { destination: "build" }); 
 	eleventyConfig.addPlugin(eleventySass, { sass, outputPath: null });
 
@@ -71,8 +67,6 @@ module.exports = function (eleventyConfig) {
 
 		return `<a href="${page && url || fallback || "#"}${selector || ""}">${pageName || fallback || "URL not found"}</a>`;
 	})
-
-	eleventyConfig.addPairedShortcode("renderMarkdown", content => markdownEngine.render(content));
 
 	eleventyConfig.addPairedShortcode("gallery", (content) => {
 		return `
@@ -191,20 +185,9 @@ module.exports = function (eleventyConfig) {
 			input: "src",
 			output: "build",
 			data: "_data"
-
-const configureMarkdown = (eleventyConfig) => {
-	const markdownEngine = markdownIt({
-		html: true
-	});
-
-	markdownEngine.use(attrs);
-	markdownEngine.use(markdownDiv);
-
-	eleventyConfig.setLibrary("md", markdownEngine);
-
-	return markdownEngine;
+		}
+	}
 }
-
 
 function loadConfigModules(eleventyConfig) {
 	const paths = fs.readdirSync("./_config/")	
