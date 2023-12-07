@@ -90,15 +90,6 @@ a:visited {
   grid-area: rightsidebar;
 }
 
-#right-sidebar h2 {
-  font-size: 1.2em;
-  margin-bottom: 0;
-}
-
-#right-sidebar ul {
-  margin-top: 5px;
-}
-
 .sidebar {
   background: var(--bg-sidebar);
   box-sizing: border-box;
@@ -107,8 +98,14 @@ a:visited {
   border-radius: var(--container-border-radius);
 }
 
+.sidebar h2 {
+  font-size: 1.2em;
+  margin-bottom: 0;
+}
+
 .sidebar nav ul {
   list-style: none;
+  margin-top: 5px;
   padding: 0;
 }
 
