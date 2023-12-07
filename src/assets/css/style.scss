@@ -431,10 +431,14 @@ ul.gallery {
 .tag-button {
   text-decoration: none;
   background-color: var(--color-interactive-bg);
-  color: white !important;
   padding: 5px;
   border-radius: 500px;
   transition: background-color 300ms;
+  word-wrap: break-word;
+
+  &:visited, &:link {
+    color: white;
+  }
 }
 
 .tag-button:hover {
