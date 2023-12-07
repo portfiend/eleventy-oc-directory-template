@@ -1,14 +1,14 @@
 module.exports = function (eleventyConfig) {
-	eleventyConfig.addPairedShortcode("tabList", (content, options) => {
+	const tabList = (content, options) => {
 		const id = "tabList-" + (options.id || "null");
 		const title = options.title || "";
 
 		return `<nav id="${id}" role="tablist" aria-label="${title}">
 			${content}
 		</nav>`;
-	});
+	};
 
-	eleventyConfig.addShortcode("tabButton", options => {
+	const tabButton = options => {
 		const selected = options.selected ? "true" : "false";
 		const tabID = "tab-" + (options.id || "null");
 		const panelID = "panel-" + (options.id || "null");
@@ -24,9 +24,9 @@ module.exports = function (eleventyConfig) {
 			tabindex="0">
 			${label}
 		</button>`;
-	});
+	};
 
-	eleventyConfig.addPairedShortcode("tabPanel", (content, options) => {
+	const tabPanel = (content, options) => {
 		const tabID = "tab-" + (options.id || "null");
 		const panelID = "panel-" + (options.id || "null");
 		const listId = "tabList-" + (options.listId || "null");
@@ -40,5 +40,9 @@ module.exports = function (eleventyConfig) {
 			tabindex="0">
 			${content}
 		</section>`;
-	});
+	};
+
+	eleventyConfig.addShortcode("tabButton", tabButton);
+	eleventyConfig.addPairedShortcode("tabList", tabList);
+	eleventyConfig.addPairedShortcode("tabPanel", tabPanel);
 };
