@@ -37,16 +37,16 @@ module.exports = function(eleventyConfig) {
 		if (!ctx) return;
 		let pageName = fallback || "URL not found";
 		let url =  fallback || "#";
-		const page = ctx.collections["all"].find(item => item.data.id === id);
+		const page =  getPageById(ctx.collections["all"], id);
 		if (page) {
 			pageName = page.data.name || page.data.pageTitle || pageName;
 			url = page.url;
 			if (url.endsWith("/")) {
-				url = url.substring(0, -1);
+				url = url.slice(0, -1);
 			}
 		}
 
-		return `<a href="${page && url || fallback || "#"}${selector || ""}">${pageName}</a>`;
+		return `<a href="${url}${selector || ""}">${pageName}</a>`;
 	}
 
 	const thumbnail = (page, thumbnailSize) => {
