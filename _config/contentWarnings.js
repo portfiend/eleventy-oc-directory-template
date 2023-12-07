@@ -1,7 +1,7 @@
 const contentWarning = require("../src/_data/contentWarning.json");
 
 module.exports = function (eleventyConfig) {
-	eleventyConfig.addPairedShortcode("blurred", (content, warning) => {
+	const blurredShortcode = (content, warning) => {
 		const warningType = warning === "adult" ? "Adult content" : contentWarning.siteWarnings[warning].name;
 
 		return `<div class="blur-content blur-${warning}" data-blurred="" tabindex="0">
@@ -12,5 +12,7 @@ module.exports = function (eleventyConfig) {
 				This content has been marked as ${warningType}. Click to show/hide.
 			</div>
 		</div>`;
-	});
+	};
+
+	eleventyConfig.addPairedShortcode("blurred", blurredShortcode);
 };
