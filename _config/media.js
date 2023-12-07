@@ -1,4 +1,4 @@
-const metadata = require("./src/_data/metadata.json");
+const metadata = require("../src/_data/metadata.json");
 
 module.exports = function(eleventyConfig) {
 	eleventyConfig.addPairedShortcode("gallery", (content) => {
