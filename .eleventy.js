@@ -1,3 +1,4 @@
+const fs = require("fs");
 const markdownIt = require("markdown-it");
 const { attrs } = require("@mdit/plugin-attrs");
 const markdownDiv = require('markdown-it-div');
@@ -15,6 +16,8 @@ module.exports = function (eleventyConfig) {
 
 	eleventyConfig.addPassthroughCopy("./src/assets/");
 	eleventyConfig.addWatchTarget("./src/assets/");
+
+	loadConfigModules(eleventyConfig);
 
 	// Filters
 
@@ -188,10 +191,6 @@ module.exports = function (eleventyConfig) {
 			input: "src",
 			output: "build",
 			data: "_data"
-		},
-		markdownTemplateEngine: "njk"
-	}
-}
 
 const configureMarkdown = (eleventyConfig) => {
 	const markdownEngine = markdownIt({
@@ -204,4 +203,17 @@ const configureMarkdown = (eleventyConfig) => {
 	eleventyConfig.setLibrary("md", markdownEngine);
 
 	return markdownEngine;
+}
+
+
+function loadConfigModules(eleventyConfig) {
+	const paths = fs.readdirSync("./_config/")	
+	for (const p in paths) {
+		const path = paths[p]
+		if (!path.endsWith(".js")) {
+			return
+		}
+		const _module = require("./_config/" + path);
+		_module(eleventyConfig);
+		}
 }
