@@ -3,7 +3,6 @@ const faviconPlugin = require("eleventy-favicon");
 const eleventySass = require("@grimlink/eleventy-plugin-sass");
 const sass = require("sass");
 
-const contentWarning = require("./src/_data/contentWarning.json");
 const metadata = require("./src/_data/metadata.json");
 
 module.exports = function (eleventyConfig) {
@@ -122,19 +121,6 @@ module.exports = function (eleventyConfig) {
 				</a>
 			</article>
 		`;
-	})
-
-	eleventyConfig.addPairedShortcode("blurred", (content, warning) => {
-		const warningType = warning === "adult" ? "Adult content" : contentWarning.siteWarnings[warning].name;
-
-		return `<div class="blur-content blur-${warning}" data-blurred="" tabindex="0">
-			<div class="blur-inner">
-				${content}
-			</div>
-			<div class="blur-warning">
-				this content has been marked as ${warningType}. click to show/hide.
-			</div>
-		</div>`
 	});
 
 	eleventyConfig.addPairedShortcode("tabList", (content, options) => {
