@@ -11,6 +11,6 @@ module.exports = function (eleventyConfig) {
 			<div class="blur-warning">
 				This content has been marked as ${warningType}. Click to show/hide.
 			</div>
-		</div>`
+		</div>`;
 	});
-}
+};

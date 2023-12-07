@@ -5,7 +5,7 @@ module.exports = function (eleventyConfig) {
 
 		return `<nav id="${id}" role="tablist" aria-label="${title}">
 			${content}
-		</nav>`
+		</nav>`;
 	});
 
 	eleventyConfig.addShortcode("tabButton", options => {
@@ -23,7 +23,7 @@ module.exports = function (eleventyConfig) {
 			aria-selected="${selected}"
 			tabindex="0">
 			${label}
-		</button>`
+		</button>`;
 	});
 
 	eleventyConfig.addPairedShortcode("tabPanel", (content, options) => {
@@ -39,6 +39,6 @@ module.exports = function (eleventyConfig) {
 			aria-labelledby="${tabID}"
 			tabindex="0">
 			${content}
-		</section>`
+		</section>`;
 	});
-}
+};

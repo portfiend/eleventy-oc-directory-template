@@ -4,7 +4,7 @@ const markdownDiv = require('markdown-it-div');
 
 module.exports = function(eleventyConfig) {
 	const markdownEngine = markdownIt({ html: true });
-	this.markdownEngine = markdownEngine
+	this.markdownEngine = markdownEngine;
 
 	markdownEngine.use(attrs);
 	markdownEngine.use(markdownDiv);
@@ -14,5 +14,5 @@ module.exports = function(eleventyConfig) {
 	
 	return {
 		markdownTemplateEngine: "njk"
-	}
-}
+	};
+};
