@@ -1,6 +1,6 @@
 {
   "name": "eleventy-oc-directory-template",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A website template that displays OCs and personal projects",
   "scripts": {
     "start": "eleventy --serve",
