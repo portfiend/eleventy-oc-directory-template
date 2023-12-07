@@ -38,19 +38,19 @@ module.exports = function (eleventyConfig) {
 			return a > b ? 1 : -1;
 		});
 		return pages;
-	})
+	});
 
 	eleventyConfig.addFilter("namespaced", (collection, namespace) => {
 		return collection.filter(item => item.data.id && item.data.id.startsWith(namespace + ":"));
-	})
+	});
 
 	eleventyConfig.addFilter("getPageById", (collection, id) => {
 		return collection.find(item => item.data.id === id);
-	})
+	});
 
 	eleventyConfig.addFilter("keys", dict => {
 		return Object.keys(dict);
-	})
+	});
 
 	// Shortcodes
 
@@ -65,21 +65,21 @@ module.exports = function (eleventyConfig) {
 		}
 
 		return `<a href="${page && url || fallback || "#"}${selector || ""}">${pageName || fallback || "URL not found"}</a>`;
-	})
+	});
 
 	eleventyConfig.addPairedShortcode("gallery", (content) => {
 		return `
 			<ul class="gallery" aria-role="gallery" >
 				${content}
 			</ul>
-		`
+		`;
 	});
 
 	eleventyConfig.addShortcode("lightboxImg", (src, alt, meta, thumbnailSrc) => {
 		let formattedMetadata = "";
 		if (meta && meta.constructor == Object) {
 			let metaStrings = [];
-			for (key in meta) {
+			for (const key in meta) {
 				metaStrings.push(`data-metadata-${key}="${meta[key]}"`);
 			}
 			formattedMetadata = metaStrings.join(" ");
@@ -91,8 +91,8 @@ module.exports = function (eleventyConfig) {
 					<img src="${metadata.assets.img}/${thumbnailSrc || src}" alt="${alt}" ${formattedMetadata} />
 				</a>
 			</figure>
-		`
-	})
+		`;
+	});
 
 	eleventyConfig.addShortcode("keyValue", (key, value) => {
 		return `
@@ -105,7 +105,7 @@ module.exports = function (eleventyConfig) {
 				</td>
 			</tr>
 		`;
-	})
+	});
 
 	eleventyConfig.addShortcode("thumbnail", (page, thumbnailSize) => {
 		const title = page.data.name || page.data.pageTitle || "";
@@ -129,17 +129,17 @@ module.exports = function (eleventyConfig) {
 			output: "build",
 			data: "_data"
 		}
-	}
-}
+	};
+};
 
 function loadConfigModules(eleventyConfig) {
-	const paths = fs.readdirSync("./_config/")	
+	const paths = fs.readdirSync("./_config/");	
 	for (const p in paths) {
-		const path = paths[p]
+		const path = paths[p];
 		if (!path.endsWith(".js")) {
-			return
+			return;
 		}
 		const _module = require("./_config/" + path);
 		_module(eleventyConfig);
-		}
+	}
 }
