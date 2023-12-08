@@ -40,8 +40,8 @@
 {% macro linkNav() %}
 	{% if linkedPages and linkedPages | length > 0 %}
 		<article>
-			<h2 aria-labelledfor="linked-pages">Linked Pages</h2>
-			<ul id="linked-pages">
+			<h2 id="linked-pages">Linked Pages</h2>
+			<ul aria-labelledby="linked-pages">
 				{% for _id in linkedPages %}
 					{% set _page = collections.all | getPageById(_id) %}
 					<li>
@@ -55,8 +55,8 @@
 	{% set whatLinksHere = collections.all | whatLinksHere %}
 	{% if whatLinksHere and whatLinksHere | length > 0 %}
 		<article>
-			<h2 aria-labelledfor="what-links-here">What Links Here</h2>
-			<ul id="what-links-here">
+			<h2 id="what-links-here">What Links Here</h2>
+			<ul aria-labelledby="what-links-here">
 				{% for _page in whatLinksHere %}
 					<li>
 						<a href="{{_page.url}}">{{_page.data.pageTitle}}</a>

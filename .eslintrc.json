@@ -5,6 +5,9 @@
 		"es6": true,
 		"browser": true
 	},
+	"rules": {
+		"semi": "warn"
+	},
 	"parserOptions": {
 		"ecmaVersion": 2021
 	}

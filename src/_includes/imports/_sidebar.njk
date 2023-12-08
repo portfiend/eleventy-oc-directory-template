@@ -1,6 +1,7 @@
 <aside id="left-sidebar" class="sidebar">
 	<nav>
-		<ul>
+		<h2 id="sidebar-nav">Navigation</h2>
+		<ul aria-labelledby="sidebar-nav">
 			<li>
 				<a href="/">Home</a>
 			</li>
@@ -8,16 +9,18 @@
 				<a href="/about">About Us</a>
 			</li>
 		</ul>
-		<hr>
-		<ul>
+
+		<h2 id="sidebar-namespaces">Namespaces</h2>
+		<ul aria-labelledby="sidebar-namespaces">
 			{% for _, namespace in namespaces %}
 				<li>
 					<a href="{{namespace.url}}">{{namespace.title}}</a>
 				</li>
 			{% endfor %}
 		</ul>
-		<hr>
-		<ul>
+		
+		<h2 id="sidebar-special">Special</h2>
+		<ul aria-labelledby="sidebar-special">
 			<li>
 				<a href="/tags">Tags</a>
 			</li>
