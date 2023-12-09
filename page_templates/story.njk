@@ -4,7 +4,7 @@ tags:
 - example
 
 # Used as a short ID for various page data-retrieving functions.
-id: "story:example"
+id: story:example
 pageTitle: Story Name
 thumbnailUrl: icons/example.svg
 linkedPages:
@@ -15,7 +15,7 @@ pageThemes:
 name: Story Name
 subtitle: Informative title
 
-banner: banner.jpg
+banner: example.png
 bannerDesc: Cover image for Story Name
 
 medium: Book, game, comic, etc.
@@ -55,16 +55,8 @@ cast:
 		{% lightboxImg banner, bannerDesc %}
 	</div>
 	<main class="card-highlight card-details">
-		<table class="card-table">
-			{% keyValue "Medium", medium %}
-			{% keyValue "Genre", genre %}
-			{% keyValue "Authors", authors %}
-			{% keyValue "Rating", rating %}
-			{% keyValue "Length", storyLength %}
-			{% keyValue "Status", status %}
-			{% keyValue "Release Date", releaseDate %}
-			{% keyValue "Link", link %}
-		</table>
+		{% from "macros/_tableData.njk" import cardTable with context %}
+		{{ cardTable() }}
 	</main>
 </article>
 

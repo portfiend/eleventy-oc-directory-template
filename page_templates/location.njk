@@ -4,7 +4,7 @@ tags:
 - example
 
 # Used as a short ID for various page data-retrieving functions.
-id: "location:example"
+id: location:example
 pageTitle: Location Name
 thumbnailUrl: icons/example.svg
 linkedPages: []
@@ -40,7 +40,7 @@ MAIN PANEL
 			<div class="subtitle">{{subtitle}}</div>
 		</header>
 		<div class="card-reference">
-			{% lightboxImg "banner.jpg", "Example image", {
+			{% lightboxImg "example.png", "Example image", {
 				artist: "Artist name here",
 				artist_website: "https://example.com",
 				license: "All rights reserved",
@@ -70,7 +70,7 @@ MAIN PANEL
 		</header>
 		<div class="subloc-left card-reference">
 			{% set refImgDesc = "Reference image of Sublocation" %}
-			{% lightboxImg "portrait.jpg", refImgDesc %}
+			{% lightboxImg "example.png", refImgDesc %}
 		</div>
 		<main class="subloc-middle card-highlight">
 			<table class="card-table">
@@ -93,7 +93,7 @@ MAIN PANEL
 		</main>
 		<div class="subloc-right card-reference">
 			{% set refImgDesc = "Reference image of Sublocation" %}
-			{% lightboxImg "banner.jpg", refImgDesc %}
+			{% lightboxImg "example.png", refImgDesc %}
 		</div>
 	</article>
 
@@ -124,19 +124,13 @@ GALLERY PANEL
 -->
 {% tabPanel id="gallery", listId="setting" %}
 	{% gallery %}
-		{% lightboxImg "portrait.jpg", "Example image", {
+		{% lightboxImg "example.png", "Example image", {
 			artist: "Artist name here",
 			artist_website: "https://example.com",
 			license: "All rights reserved",
 			creation_date: "2023-11-20"
 		} %}
-		{% lightboxImg "portrait.jpg", "Example image", {
-			artist: "Artist name here",
-			artist_website: "https://example.com",
-			license: "All rights reserved",
-			creation_date: "2023-11-20"
-		} %}
-		{% lightboxImg "portrait.jpg", "Example image", {
+		{% lightboxImg "example.png", "Example image", {
 			artist: "Artist name here",
 			artist_website: "https://example.com",
 			license: "All rights reserved",
