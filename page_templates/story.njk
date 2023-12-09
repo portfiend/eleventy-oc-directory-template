@@ -18,14 +18,15 @@ subtitle: Informative title
 banner: example.png
 bannerDesc: Cover image for Story Name
 
-medium: Book, game, comic, etc.
-genre: Science Fiction / Fantasy / Horror / Thriller
-rating: Not Yet Rated
-authors: Alice, <a href="/about">Bob</a>, Charlie, David, Eve, Faythe, Grace, Heidi, Ivan
-storyLength: 100 pages, minutes, episodes, etc.
-status: Unreleased
-releaseDate: December 31, 2040
-link: <a href='#'>Link Text</a>
+tableFields:
+  medium: Book, game, comic, etc.
+  genre: Science Fiction / Fantasy / Horror / Thriller
+  rating: Not Yet Rated
+  authors: Alice, <a href="/about">Bob</a>, Charlie, David, Eve, Faythe, Grace, Heidi, Ivan
+  storyLength: 100 pages, minutes, episodes, etc.
+  status: Unreleased
+  releaseDate: December 31, 2040
+  link: <a href='#'>Link Text</a>
 cast:
 - character:example
 
@@ -34,12 +35,12 @@ cast:
 {% set castList %}
 <ul class="thumb-list">
   {% for c in cast %}
-		{% set _page = collections.all | getPageById(c) %}
-		{% if _page %}
-			<li class="thumb-list-item">
-				{% thumbnail _page %}
-			</li>
-		{% endif %}
+    {% set _page = collections.all | getPageById(c) %}
+    {% if _page %}
+      <li class="thumb-list-item">
+        {% thumbnail _page %}
+      </li>
+    {% endif %}
   {% endfor %}
 </ul>
 {% endset %}
@@ -47,46 +48,46 @@ cast:
 <h1>{{pageTitle}}</h1>
 
 <article class="story-card card story-{{name | slugify}}">
-	<header class="card-header">
-		<h2>{{name}}</h2>
-		<div class="subtitle">{{subtitle}}</div>
-	</header>
-	<div class="card-reference">
-		{% lightboxImg banner, bannerDesc %}
-	</div>
-	<main class="card-highlight card-details">
-		{% from "macros/_tableData.njk" import cardTable with context %}
-		{{ cardTable() }}
-	</main>
+  <header class="card-header">
+    <h2>{{name}}</h2>
+    <div class="subtitle">{{subtitle}}</div>
+  </header>
+  <div class="card-reference">
+    {% lightboxImg banner, bannerDesc %}
+  </div>
+  <main class="card-highlight card-details">
+    {% from "macros/_tableData.njk" import cardTable with context %}
+    {{ cardTable() }}
+  </main>
 </article>
 
 {% renderMarkdown %}
 
 ## Synopsis
 
-	Explain the gist of your story here.
+  Explain the gist of your story here.
 
 ## Summary
 
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-	Integer ac lorem et massa aliquam pharetra.
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  Integer ac lorem et massa aliquam pharetra.
 
-	Vestibulum fermentum velit id sem viverra varius.
-	Integer accumsan justo quis enim efficitur pellentesque.
-	Proin sit amet tellus at lorem dignissim commodo.
-	Nunc vel odio et risus vulputate fermentum in in purus.
-	Proin eget ex a sem elementum feugiat a pharetra massa.
+  Vestibulum fermentum velit id sem viverra varius.
+  Integer accumsan justo quis enim efficitur pellentesque.
+  Proin sit amet tellus at lorem dignissim commodo.
+  Nunc vel odio et risus vulputate fermentum in in purus.
+  Proin eget ex a sem elementum feugiat a pharetra massa.
 
-	Sed pharetra lectus vitae tellus sollicitudin, id congue ipsum lobortis.
-	Nam ultricies quam eget finibus sollicitudin.
-	Ut eget urna et diam pretium dapibus.
+  Sed pharetra lectus vitae tellus sollicitudin, id congue ipsum lobortis.
+  Nam ultricies quam eget finibus sollicitudin.
+  Ut eget urna et diam pretium dapibus.
 
-	Aenean blandit tortor mollis iaculis consequat.
-	Sed et mi et ante pulvinar rhoncus.
+  Aenean blandit tortor mollis iaculis consequat.
+  Sed et mi et ante pulvinar rhoncus.
 
-	Morbi id tellus a dolor faucibus pretium.
-	Phasellus sodales leo ut laoreet dignissim.
-	Maecenas semper augue eget sapien tempor laoreet ut ac neque.
+  Morbi id tellus a dolor faucibus pretium.
+  Phasellus sodales leo ut laoreet dignissim.
+  Maecenas semper augue eget sapien tempor laoreet ut ac neque.
 
 ## Cast
 {% endrenderMarkdown %}
