@@ -1,4 +1,4 @@
-This is an [Eleventy](https://www.11ty.dev/) template designed for a original characters directory. More specifically, it can include information on characters, locations and projects ("settings"), and whatever else you want. This repository draws inspiration from [Toyhouse](https://toyhou.se/), various [Neocities](https://neocities.org/) websites, and some layout inspiration from [Dreamwidth](https://www.dreamwidth.org/).
+This is an [Eleventy](https://www.11ty.dev/) template designed for a original characters directory. More specifically, it can include information on characters, locations, stories, and whatever else you want. This repository draws inspiration from [Toyhouse](https://toyhou.se/), various [Neocities](https://neocities.org/) websites, and some layout inspiration from [Dreamwidth](https://www.dreamwidth.org/).
 
 ## Installation
 
