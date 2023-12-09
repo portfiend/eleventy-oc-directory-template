@@ -26,7 +26,21 @@ tableFields:
   Residence: Example
   Status: Example
 
+permissionTables:
+  Fan work preferences:
+    Fanworks: Allowed
+    Commissions: Ask first
+    OC interaction: Allowed
+    Shipping: Canon only
+  Ownership details:
+    Designer: Me
+    Owner: Me
+    Up for sale: Never
+    Up for trade: No
+
 ---
+
+{% from "macros/_tableData.njk" import cardTable, permissions with context %}
 
 <h1>{{pageTitle}}</h1>
 
@@ -49,7 +63,6 @@ MAIN PANEL
       {% lightboxImg "portrait.jpg", refImgDesc %}
     </div>
     <main class="card-right card-details card-highlight">
-      {% from "macros/_tableData.njk" import cardTable with context %}
       {{ cardTable() }}
       <div class="card-biography">
         {% renderMarkdown %}
@@ -101,27 +114,7 @@ GALLERY PANEL
 PERMISSIONS PANEL 
 -->
 {% tabPanel id="permissions", listId="character" %}
-  <table class="field-table">
-    <caption>Fan work preferences</caption>
-    <tbody>
-      {% keyValue "Fanworks", "Allowed" %}
-      {% keyValue "Commissions", "Ask first" %}
-      {% keyValue "Romance", "Allowed" %}
-      {% keyValue "OC interaction", "Allowed" %}
-      {% keyValue "Shipping", "Canon only" %}
-      {% keyValue "Gore", "Ask first" %}
-      {% keyValue "NSFW", "Ask first" %}
-    </tbody>
-  </table>
-  <table class="field-table">
-    <caption>Trade preferences</caption>
-    <tbody>
-      {% keyValue "Designer", "Me!!!!!!" %}
-      {% keyValue "Sale price", "N/A" %}
-      {% keyValue "Up for sale", "Never" %}
-      {% keyValue "Up for trade", "No" %}
-    </tbody>
-  </table>
+  {{ permissions() }}
   {% renderMarkdown %}
 Elaborate on your character permissions. Are there certain themes/topics that are off-limits?
 How about themes/topics that you'd like to see them featured in more?
