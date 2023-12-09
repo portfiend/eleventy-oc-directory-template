@@ -19,7 +19,14 @@ tableFields:
   Terrain: Example text
   Government: Example text
 
+permissionTables:
+  Fan work preferences:
+    Fanworks: Allowed
+    Commissions: Ask first
+
 ---
+
+{% from "macros/_tableData.njk" import cardTable, permissions with context %}
 
 <h1>{{pageTitle}}</h1>
 
@@ -143,13 +150,7 @@ GALLERY PANEL
 PERMISSIONS PANEL 
 -->
 {% tabPanel id="permissions", listId="setting" %}
-  <table class="field-table">
-    <caption>Fan work preferences</caption>
-    <tbody>
-      {% keyValue "Fanworks", "Allowed" %}
-      {% keyValue "Commissions", "Ask first" %}
-    </tbody>
-  </table>
+  {{ permissions() }}
   {% renderMarkdown %}
 Elaborate on your permissions. Are there certain themes/topics that are off-limits?
 How about themes/topics that you'd like to see them featured in more?
@@ -158,5 +159,3 @@ How about themes/topics that you'd like to see them featured in more?
 {% include "imports/_globalCharacterPermissions.md" %}
   {% endrenderMarkdown %}
 {% endtabPanel %}
-
-<p></p>

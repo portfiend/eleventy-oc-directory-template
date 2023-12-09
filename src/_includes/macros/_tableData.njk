@@ -7,3 +7,16 @@
 		</tbody>
 	</table>
 {% endmacro %}
+
+{% macro permissions() %}
+	{% for tableName, table in permissionTables %}
+		<table class="field-table">
+			<caption>{{tableName}}</caption>
+			<tbody>
+				{% for key, value in table %}
+					{% keyValue key, value %}
+				{% endfor %}
+			</tbody>
+		</table>
+	{% endfor %}
+{% endmacro %}
