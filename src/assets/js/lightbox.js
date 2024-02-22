@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const showLightbox = (img) => {
 		if (!img) return;
 
-		lbImg.src = (img.getAttribute("src") || "");
+		lbImg.src = (img.getAttribute("realSrc") || "");
 		lbCaption.textContent = (img.getAttribute("alt") || "");
 
 		const dataFields = [];
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				const dataUrl = document.createElement("a");
 				dataUrl.href = value;
 				dataUrl.textContent = value;
-				dataValue.append(dataUrl)
+				dataValue.append(dataUrl);
 			}
 			else {
 				dataValue.textContent = value;
@@ -41,14 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
 		lbMetalist.replaceChildren(...dataFields);
 
 		lbOverlay.hidden = false;
-	}
+	};
 
 	lbPreview.addEventListener("click", () => lbOverlay.hidden = true);
 	lbPreview.childNodes.forEach(child => {
 		child.addEventListener("click", e => {
 			e.stopPropagation();
-		})
-	})
+		});
+	});
 
 	const links = document.querySelectorAll('a.lightbox-link');
 	for (let l = 0; l < links.length; l++) {
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		link.addEventListener("click", (event) => {
 			event.preventDefault();
 			showLightbox(linkImg);
-		})
+		});
 	}
 });
 
@@ -73,4 +73,4 @@ const isURL = (string) => {
 	}
 
 	return url.protocol === "http:" || url.protocol === "https:";
-}
+};
